@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<system.web.webPages.razor>
+		<host 
+        factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"
+        xdt:Transform="Replace"
+        />
+	</system.web.webPages.razor>
+</configuration>

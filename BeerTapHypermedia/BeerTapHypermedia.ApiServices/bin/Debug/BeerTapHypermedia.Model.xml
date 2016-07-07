@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BeerTapHypermedia.Model</name>
+    </assembly>
+    <members>
+        <member name="T:BeerTapHypermedia.Model.IStatefulKeg">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.IStatefulKeg.KegState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.Keg">
+            <summary>
+            Keg
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Keg.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Keg.KegState">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.LinkRelations">
+            <summary>
+            iQmetrix link relation names
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Office">
+            <summary>
+            link relation to describe the Identity resource.
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.Enums.KegState">
+            <summary>
+            Enumeration for the Keg
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.KegState.Full">
+            <summary>
+            Keg is full and no need to replace
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.KegState.Reduced">
+            <summary>
+            Keg is reduced but no need to replace 
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.KegState.Nearly">
+            <summary>
+            Keg is almost empty and need to replace 
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.KegState.Empty">
+            <summary>
+            Keg is empty and must replace
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.Enums.OfficeLocation">
+            <summary>
+            Enumeration for the iQ Offices
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.OfficeLocation.Vancouver">
+            <summary>
+            HQ
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.OfficeLocation.Regina">
+            <summary>
+            Regina, Saskatchewan, Ca
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.OfficeLocation.Winnipeg">
+            <summary>
+            Winnipeg Manitoba, Ca
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.OfficeLocation.Davidson">
+            <summary>
+            Davidson NC
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.OfficeLocation.Manila">
+            <summary>
+            Manila PH Office
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.Enums.OfficeLocation.Sydney">
+            <summary>
+            Sydney AU Office
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.Office">
+            <summary>
+            A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.Id">
+            <summary>
+            Unique Identifier for the Office
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.Name">
+            <summary>
+            Name for the Office
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.Location">
+            <summary>
+            Location of Office
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.Description">
+            <summary>
+            Description for the Office
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.Kegs">
+            <summary>
+            Kegs in the office
+            </summary>
+        </member>
+    </members>
+</doc>

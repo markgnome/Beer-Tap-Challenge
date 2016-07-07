@@ -1,0 +1,11 @@
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.csprojResolveAssemblyReference.cache
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\BeerTapHypermedia.Model.XML
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\BeerTapHypermedia.Model.dll
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\BeerTapHypermedia.Model.pdb
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\IQ.Platform.Framework.Common.dll
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\IQ.Platform.Framework.WebApi.Model.dll
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\Newtonsoft.Json.dll
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\IQ.Platform.Framework.WebApi.Model.xml
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\Newtonsoft.Json.xml
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.dll
+c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.pdb

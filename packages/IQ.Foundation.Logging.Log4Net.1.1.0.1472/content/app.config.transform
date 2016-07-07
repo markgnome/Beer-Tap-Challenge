@@ -1,0 +1,8 @@
+﻿<configuration>
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+    <section name="LoggingConfigurationSection" type="IQ.Foundation.Configuration.XamlConfigurationSectionHandler, IQ.Foundation" />
+  </configSections>
+  <LoggingConfigurationSection configSource="config\Logging.config" />
+  <log4net configSource="config\log4net.config" />
+</configuration>
