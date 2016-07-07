@@ -39,8 +39,8 @@ namespace BeerTapHypermedia.WebApi.Infrastructure
         }
 
         public override Assembly ResourceAssembly { get { return typeof(LinkRelations).Assembly; } }
-        protected override Assembly ResourceSpecsAssembly { get { return typeof(Office).Assembly; } }
-        protected override Assembly ResourceStateProvidersAssembly { get { return typeof(Office).Assembly; } }
+        protected override Assembly ResourceSpecsAssembly { get { return typeof(OfficeSpec).Assembly; } }
+        protected override Assembly ResourceStateProvidersAssembly { get { return typeof(OfficeSpec).Assembly; } }
         protected override Assembly ApiAppServicesAssembly { get { return typeof(OfficeApiService).Assembly; } }
 
 
