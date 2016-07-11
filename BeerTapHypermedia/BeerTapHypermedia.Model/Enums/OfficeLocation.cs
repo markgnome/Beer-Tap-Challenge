@@ -9,7 +9,7 @@
         /// <summary>
         /// HQ
         /// </summary>
-        Vancouver,
+        Vancouver = 1,
         /// <summary>
         /// Regina, Saskatchewan, Ca
         /// </summary>

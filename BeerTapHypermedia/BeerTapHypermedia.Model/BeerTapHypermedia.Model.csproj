@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\KegBrand.cs" />
     <Compile Include="IStatefulKeg.cs" />
     <Compile Include="Keg.cs" />
     <Compile Include="LinkRelations.cs" />

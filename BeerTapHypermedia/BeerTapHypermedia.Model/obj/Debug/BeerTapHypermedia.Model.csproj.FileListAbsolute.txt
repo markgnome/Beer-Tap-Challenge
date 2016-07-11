@@ -9,3 +9,14 @@ c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\Beer
 c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\Newtonsoft.Json.xml
 c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.dll
 c:\users\mark.milan\documents\visual studio 2015\Projects\BeerTapHypermedia\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\BeerTapHypermedia.Model.XML
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\BeerTapHypermedia.Model.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\BeerTapHypermedia.Model.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\IQ.Platform.Framework.Common.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\IQ.Platform.Framework.WebApi.Model.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\IQ.Platform.Framework.WebApi.Model.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.csprojResolveAssemblyReference.cache
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.pdb
