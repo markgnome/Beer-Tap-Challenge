@@ -34,7 +34,6 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<IEnumerable<Office>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
             var offices = new List<Office>();
 
             foreach (OfficeLocation location in Enum.GetValues(typeof(OfficeLocation)))
