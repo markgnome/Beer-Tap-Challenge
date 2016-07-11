@@ -119,6 +119,11 @@
             Keg Entity Class
             </summary>
         </member>
+        <member name="F:BeerTapHypermedia.Model.Keg.FullQuantity">
+            <summary>
+            Default Full Quantity of a Keg
+            </summary>
+        </member>
         <member name="P:BeerTapHypermedia.Model.Keg.Id">
             <summary>
             Identification

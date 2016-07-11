@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,24 +36,30 @@ namespace BeerTapHypermedia.ApiServices
         public Task<IEnumerable<Office>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
             var offices = new List<Office>();
-
+            
             foreach (OfficeLocation location in Enum.GetValues(typeof(OfficeLocation)))
             {
+                var officeId = ((int) location).ToString();
+                var hq = location == OfficeLocation.Vancouver ? "- HQ" : string.Empty;
+                var tapCount = Convert.ToInt32(ConfigurationManager.AppSettings[officeId]);
+                var kegs = new List<Keg>();
+                // generate 
+                for (var i = 1; i < tapCount; i++)
+                {
+                    kegs.Add(new Keg()
+                    {
+                        Id = i.ToString(),
+                        Brand = GetRandomKegBrand(),
+                        Quantity = Keg.FullQuantity
+                    });
+                }
                 var office = new Office
                 {
-                    Description = $"iQ Office {location}",
-                    Id = ((int)location).ToString(),
+                    Description = $"iQ Office {location}{hq}",
+                    Id = officeId,
                     Location = location,
                     Name = $"iQ {location}",
-                    Kegs = new List<Keg>
-                    {
-                        new Keg
-                        {
-                            Id = "1",
-                            Quantity = 18927,
-                            Brand = KegBrand.BudLight,
-                        }
-                    }
+                    Kegs = kegs
                 };
                 offices.Add(office);    
             }
@@ -73,6 +80,13 @@ namespace BeerTapHypermedia.ApiServices
         public Task DeleteAsync(ResourceOrIdentifier<Office, string> input, IRequestContext context, CancellationToken cancellation)
         {
             throw new NotImplementedException();
+        }
+
+        private KegBrand GetRandomKegBrand()
+        {
+            var values = Enum.GetValues(typeof(KegBrand));
+            var random = new Random();
+            return (KegBrand)values.GetValue(random.Next(values.Length));
         }
     }
 }

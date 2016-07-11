@@ -14,7 +14,10 @@ namespace BeerTapHypermedia.Model
     /// </summary>
     public class Keg : IStatefulResource<KegState>, IIdentifiable<string>, IStatefulKeg
     {
-        private const decimal FullQuantity = 18927; // in ml = 5 gallons
+        /// <summary>
+        /// Default Full Quantity of a Keg
+        /// </summary>
+        public const decimal FullQuantity = 18927; // in ml = 5 gallons
 
         /// <summary>
         /// Identification
