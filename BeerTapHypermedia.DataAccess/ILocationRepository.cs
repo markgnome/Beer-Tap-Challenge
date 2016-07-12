@@ -11,7 +11,7 @@ namespace BeerTapHypermedia.DataAccess
     {
         LocationDto Get(int locationId);
         IEnumerable<LocationDto> GetAll();
-        bool Save(LocationDto location);
+        int Save(LocationDto location);
         void Update(LocationDto location);
         void Delete(int locationId);
 

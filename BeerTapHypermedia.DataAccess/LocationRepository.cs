@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +29,33 @@ namespace BeerTapHypermedia.DataAccess
             throw new NotImplementedException();
         }
 
-        public bool Save(LocationDto location)
+        public int Save(LocationDto location)
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateContext())
+            {
+                var cityParam = new SqlParameter()
+                {
+                    ParameterName = "@City",
+                    SqlDbType = SqlDbType.VarChar,
+                    Value = location.City
+                };
+                var countryParam = new SqlParameter()
+                {
+                    ParameterName = "@Country",
+                    SqlDbType = SqlDbType.VarChar,
+                    Value = location.Country
+                };
+                var resultParam = new SqlParameter()
+                {
+                    ParameterName = "@Result",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.ReturnValue
+                };
+
+                return 
+                    context.Database.SqlQuery<int>("[dbo].[Location_Add] @City, @Country, @Result", cityParam,
+                        countryParam, resultParam).FirstOrDefault();
+            }
         }
 
         public void Update(LocationDto location)
