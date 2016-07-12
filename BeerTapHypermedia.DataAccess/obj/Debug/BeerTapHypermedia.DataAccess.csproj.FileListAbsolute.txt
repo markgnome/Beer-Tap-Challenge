@@ -1,0 +1,15 @@
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\BeerTapHypermedia.DataAccess.dll.config
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\BeerTapHypermedia.DataAccess.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\BeerTapHypermedia.DataAccess.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\EntityFramework.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.DataPersistenceFramework.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.Framework.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Newtonsoft.Json.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\EntityFramework.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.Framework.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Newtonsoft.Json.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.csprojResolveAssemblyReference.cache
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.pdb

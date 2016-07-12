@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerTapHypermedia.WebApi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerTapHypermedia.IntegrationTests", "BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\BeerTapHypermedia.IntegrationTests.csproj", "{683A3444-B4FA-4FF2-8308-F3CAD3EC011A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerTapHypermedia.DataAccess", "BeerTapHypermedia.DataAccess\BeerTapHypermedia.DataAccess.csproj", "{CC18C793-E813-407E-900F-66D1B24BB954}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{683A3444-B4FA-4FF2-8308-F3CAD3EC011A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{683A3444-B4FA-4FF2-8308-F3CAD3EC011A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{683A3444-B4FA-4FF2-8308-F3CAD3EC011A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC18C793-E813-407E-900F-66D1B24BB954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC18C793-E813-407E-900F-66D1B24BB954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC18C793-E813-407E-900F-66D1B24BB954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC18C793-E813-407E-900F-66D1B24BB954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -43,8 +43,8 @@ namespace BeerTapHypermedia.ApiServices
                 var hq = location == OfficeLocation.Vancouver ? "- HQ" : string.Empty;
                 var tapCount = Convert.ToInt32(ConfigurationManager.AppSettings[officeId]);
                 var kegs = new List<Keg>();
-                // generate 
-                for (var i = 1; i < tapCount; i++)
+                // generate kegs
+                for (var i = 0; i < tapCount; i++)
                 {
                     kegs.Add(new Keg()
                     {
@@ -53,6 +53,7 @@ namespace BeerTapHypermedia.ApiServices
                         Quantity = Keg.FullQuantity
                     });
                 }
+                // set kegs
                 var office = new Office
                 {
                     Description = $"iQ Office {location}{hq}",
