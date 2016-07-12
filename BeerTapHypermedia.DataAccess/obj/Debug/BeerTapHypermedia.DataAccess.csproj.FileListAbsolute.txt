@@ -15,3 +15,7 @@ C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapH
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.pdb
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.Foundation.Logging.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.Platform.LoggingEx.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Castle.Core.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Castle.Windsor.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Castle.Core.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Castle.Windsor.xml

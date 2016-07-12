@@ -222,3 +222,12 @@ C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Integration
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\obj\Debug\BeerTapHypermedia.IntegrationTests.csprojResolveAssemblyReference.cache
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\obj\Debug\BeerTapHypermedia.IntegrationTests.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\obj\Debug\BeerTapHypermedia.IntegrationTests.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\BeerTapHypermedia.DataAccess.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\IQ.DataPersistenceFramework.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\EntityFramework.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\IQ.Framework.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\BeerTapHypermedia.DataAccess.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\EntityFramework.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\IQ.Framework.xml
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.IntegrationTests\bin\Debug\EntityFramework.SqlServer.xml

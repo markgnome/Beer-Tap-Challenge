@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
+using BeerTapHypermedia.DataAccess;
 using Castle.Windsor;
 using FluentAssertions;
 using IQ.Platform.Framework.Common;
@@ -30,6 +31,13 @@ namespace BeerTapHypermedia.IntegrationTests
                     IWindsorContainer windsorContainer = new WindsorContainer();
                     BootStrapper.Initialize(config, new DefaultApiContainer(config, windsorContainer), initializeHelpPage: false);
                     return windsorContainer;
+                });
+
+                fixture.Register(() =>
+                {
+                    IWindsorContainer container = new WindsorContainer();
+                    container.Resolve<ILocationRepository>();
+                    return container;
                 });
             }
         }

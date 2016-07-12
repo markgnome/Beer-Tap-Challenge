@@ -21,7 +21,10 @@ namespace BeerTapHypermedia.DataAccess
 
         public LocationDto Get(int locationId)
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateContext())
+            {
+                return context.Database.SqlQuery<LocationDto>("SELECT * FROM LOCATIONS").FirstOrDefault();
+            }
         }
 
         public IEnumerable<LocationDto> GetAll()
@@ -49,12 +52,14 @@ namespace BeerTapHypermedia.DataAccess
                 {
                     ParameterName = "@Result",
                     SqlDbType = SqlDbType.Int,
-                    Direction = ParameterDirection.ReturnValue
+                    Direction = ParameterDirection.Output
                 };
 
-                return 
-                    context.Database.SqlQuery<int>("[dbo].[Location_Add] @City, @Country, @Result", cityParam,
-                        countryParam, resultParam).FirstOrDefault();
+
+                var data = context.Database.SqlQuery<int>("[dbo].[Location_Add] @City, @Country, @Result OUT", cityParam,
+                    countryParam, resultParam);
+
+                return Convert.ToInt32(resultParam.Value);
             }
         }
 
