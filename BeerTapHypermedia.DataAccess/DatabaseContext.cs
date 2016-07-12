@@ -9,11 +9,11 @@ using IQ.DataPersistenceFramework.Languages;
 
 namespace BeerTapHypermedia.DataAccess
 {
-    public class DatabaseContext : DatabaseBaseContext, ILocalizedApplication
+    public class BeerTapContext : DatabaseBaseContext, ILocalizedApplication
     {
         private const string ConnectionStringName = "name=DataConnection";
 
-        public DatabaseContext() : base(ConnectionStringName)
+        public BeerTapContext() : base(ConnectionStringName)
         {
             Configuration.ProxyCreationEnabled = true;
             Configuration.LazyLoadingEnabled = true;

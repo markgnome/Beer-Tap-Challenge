@@ -69,11 +69,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseContextFactory.cs" />
-    <Compile Include="Dtos\Brand.cs" />
-    <Compile Include="Dtos\Location.cs" />
-    <Compile Include="Dtos\Office.cs" />
     <Compile Include="DatabaseContext.cs" />
+    <Compile Include="DatabaseContextFactory.cs">
+      <DependentUpon>IDatabaseContextFactory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dtos\BrandDto.cs" />
+    <Compile Include="Dtos\LocationDto.cs" />
+    <Compile Include="Dtos\OfficeDto.cs" />
     <Compile Include="IDatabaseContextFactory.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="LocationRepository.cs">

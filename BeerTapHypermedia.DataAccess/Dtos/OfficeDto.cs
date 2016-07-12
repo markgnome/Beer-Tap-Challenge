@@ -4,7 +4,7 @@ using IQ.Framework.Entities;
 
 namespace BeerTapHypermedia.DataAccess.Dtos
 {
-    public class Office : IIdentifiable<int>
+    public class OfficeDto : IIdentifiable<int>
     {
         /// <summary>
         /// Id of iQ Office

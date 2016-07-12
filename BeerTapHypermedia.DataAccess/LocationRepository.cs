@@ -7,25 +7,32 @@ using BeerTapHypermedia.DataAccess.Dtos;
 
 namespace BeerTapHypermedia.DataAccess
 {
-    public class LocationRepository : ILocationRepository, IDisposable
+    public class LocationRepository : ILocationRepository
     {
-        private readonly DatabaseContext _context;
-        public Location Get(int locationId)
+        private readonly IDatabaseContextFactory<BeerTapContext> _contextFactory;
+
+        public LocationRepository(IDatabaseContextFactory<BeerTapContext> contextFactory)
+        {
+            if (contextFactory == null) throw new ArgumentNullException(nameof(contextFactory));
+            _contextFactory = contextFactory;
+        }
+
+        public LocationDto Get(int locationId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Location> GetAll()
+        public IEnumerable<LocationDto> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Save(Location location)
+        public bool Save(LocationDto location)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Location location)
+        public void Update(LocationDto location)
         {
             throw new NotImplementedException();
         }
@@ -33,31 +40,6 @@ namespace BeerTapHypermedia.DataAccess
         public void Delete(int locationId)
         {
             throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private bool _disposed = false;
-
-        public LocationRepository(DatabaseContext context)
-        {
-            _context = context;
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this._disposed)
-            {
-                if (disposing)
-                {
-                    _context.Dispose();
-                }
-            }
-            this._disposed = true;
         }
     }
 

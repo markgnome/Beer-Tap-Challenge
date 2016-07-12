@@ -8,17 +8,17 @@ using IQ.Platform.LoggingEx;
 
 namespace BeerTapHypermedia.DataAccess
 {
-    public class DatabaseContextFactory : IDbContextFactory<DatabaseContext>
+    public class DatabaseContextFactory : IDbContextFactory<BeerTapContext>
     {
-        private readonly ILog<DatabaseContext> _logger;
-        public DatabaseContext Create()
+        private readonly ILog<BeerTapContext> _logger;
+        public BeerTapContext Create()
         {
-            var context = new DatabaseContext();
+            var context = new BeerTapContext();
             context.Database.Log = s => _logger.Debug(s);
             return context;
         }
 
-        public DatabaseContextFactory(ILog<DatabaseContext> logger)
+        public DatabaseContextFactory(ILog<BeerTapContext> logger)
         {
             if (logger == null) throw new ArgumentNullException(nameof(logger));
             _logger = logger;

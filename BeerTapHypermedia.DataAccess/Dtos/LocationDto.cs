@@ -3,7 +3,7 @@ using IQ.Framework.Entities;
 
 namespace BeerTapHypermedia.DataAccess.Dtos
 {
-    public class Location : IIdentifiable<int>
+    public class LocationDto : IIdentifiable<int>
     {
         [Key]
         public int Id { get; set; }

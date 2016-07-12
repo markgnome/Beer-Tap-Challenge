@@ -9,10 +9,10 @@ namespace BeerTapHypermedia.DataAccess
 {
     public interface ILocationRepository
     {
-        Location Get(int locationId);
-        IEnumerable<Location> GetAll();
-        bool Save(Location location);
-        void Update(Location location);
+        LocationDto Get(int locationId);
+        IEnumerable<LocationDto> GetAll();
+        bool Save(LocationDto location);
+        void Update(LocationDto location);
         void Delete(int locationId);
 
     }

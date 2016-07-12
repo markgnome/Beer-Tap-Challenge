@@ -2,7 +2,7 @@
 
 namespace BeerTapHypermedia.DataAccess.Dtos
 {
-    public class Brand : IIdentifiable<int>
+    public class BrandDto : IIdentifiable<int>
     {
         public int Id { get; set; }
 
