@@ -11,8 +11,25 @@ namespace BeerTapHypermedia.DataAccess
 {
     public class DatabaseContext : DatabaseBaseContext, ILocalizedApplication
     {
-        public DatabaseContext() : base() { }
-        public DatabaseContext(string connectionName) : base(connectionName) { }
+        private const string ConnectionStringName = "name=DataConnection";
+
+        public DatabaseContext() : base(ConnectionStringName)
+        {
+            Configuration.ProxyCreationEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
+        }
+
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Configurations.Add(new CatalogProductOnOrderConfiguration());
+        //    modelBuilder.Configurations.Add(new CatalogProductInStockConfiguration());
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
+        //public DbSet<CatalogProductOnOrderRecord> CatalogProductOnOrder { get; set; }
+        //public DbSet<CatalogProductInStockRecord> CatalogProductInStock { get; set; }
+
         public DbSet<Language> Languages { get; set; }
         public DbSet<LocalizedStringIndex> LocalizedStringIndices { get; set; }
     }

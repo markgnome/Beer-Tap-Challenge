@@ -2,7 +2,7 @@
 using IQ.DataPersistenceFramework.DAL;
 using IQ.Framework.Entities;
 
-namespace BeerTapHypermedia.DataAccess.DataObjects
+namespace BeerTapHypermedia.DataAccess.Dtos
 {
     public class Office : IIdentifiable<int>
     {
@@ -13,11 +13,6 @@ namespace BeerTapHypermedia.DataAccess.DataObjects
         [RowKey]
         public int Id { get; set; }
         /// <summary>
-        /// Entity Tenant Key
-        /// </summary>
-        [TenantKey]
-        public int EntityId { get; set; }
-        /// <summary>
         /// Name 
         /// </summary>
         public string Name { get; set; }
@@ -25,6 +20,10 @@ namespace BeerTapHypermedia.DataAccess.DataObjects
         /// Description
         /// </summary>
         public string Description { get; set; }
+        /// <summary>
+        /// Location field
+        /// </summary>
+        public int LocationId { get; set; }
 
 
         

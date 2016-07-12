@@ -13,3 +13,5 @@ C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\Newtonso
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.csprojResolveAssemblyReference.cache
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\obj\Debug\BeerTapHypermedia.DataAccess.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.Foundation.Logging.dll
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia.DataAccess\bin\Debug\IQ.Platform.LoggingEx.dll
