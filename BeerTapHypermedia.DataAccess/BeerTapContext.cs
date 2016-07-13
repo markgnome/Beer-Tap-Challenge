@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using IQ.DataPersistenceFramework.DAL.EF;
 using IQ.DataPersistenceFramework.Languages;
 
 namespace BeerTapHypermedia.DataAccess
 {
-    public class BeerTapContext : DbContext, ILocalizedApplication
+    public class BeerTapContext : DatabaseBaseContext, ILocalizedApplication
     {
-
-        public BeerTapContext() : base("BeerTapContext")
+        public BeerTapContext(string connectionName) : base(connectionName)
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BeerTapContext>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BeerTapContext>());
+            Configuration.ProxyCreationEnabled = true;
+            Configuration.LazyLoadingEnabled = true;
         }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)

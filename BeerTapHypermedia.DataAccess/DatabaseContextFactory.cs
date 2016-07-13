@@ -1,27 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IQ.Platform.LoggingEx;
-
-namespace BeerTapHypermedia.DataAccess
+﻿namespace BeerTapHypermedia.DataAccess
 {
     public class DatabaseContextFactory : IDatabaseContextFactory<BeerTapContext>
     {
-        //private readonly ILog<BeerTapContext> _logger;
-    
-        //public DatabaseContextFactory(ILog<BeerTapContext> logger)
-        //{
-        //    if (logger == null) throw new ArgumentNullException(nameof(logger));
-        //    _logger = logger;
-        //}
-
+        private const string connectionName = "BeerTapContext";
         public BeerTapContext CreateContext()
         {
-            var context = new BeerTapContext();
-            //context.Database.Log = s => _logger.Debug(s);
+            var context = new BeerTapContext(connectionName);
             return context;
         }
     }

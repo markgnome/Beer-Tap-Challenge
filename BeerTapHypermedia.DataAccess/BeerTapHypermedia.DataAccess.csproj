@@ -56,8 +56,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="IQ.Framework, Version=4.2.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\IQ.Framework.4.2.0.9\lib\net40-Client\IQ.Framework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="IQ.Platform.LoggingEx, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IQ.Platform.LoggingEx.1.1.1\lib\net45\IQ.Platform.LoggingEx.dll</HintPath>
@@ -78,7 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="BeerTapContext.cs" />
     <Compile Include="DatabaseContextFactory.cs">
       <DependentUpon>IDatabaseContextFactory.cs</DependentUpon>
     </Compile>

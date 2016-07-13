@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using IQ.Framework.Entities;
 
 namespace BeerTapHypermedia.DataAccess.Dtos
 {
-    public class LocationDto : IIdentifiable<int>
+    public class LocationDto 
     {
         [Key]
         public int Id { get; set; }

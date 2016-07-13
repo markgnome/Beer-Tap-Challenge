@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BeerTapHypermedia.DataAccess.Dtos;
 
 namespace BeerTapHypermedia.DataAccess
@@ -36,27 +34,26 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var cityParam = new SqlParameter()
+                var cityParam = new SqlParameter
                 {
                     ParameterName = "@City",
                     SqlDbType = SqlDbType.VarChar,
                     Value = location.City
                 };
-                var countryParam = new SqlParameter()
+                var countryParam = new SqlParameter
                 {
                     ParameterName = "@Country",
                     SqlDbType = SqlDbType.VarChar,
                     Value = location.Country
                 };
-                var resultParam = new SqlParameter()
+                var resultParam = new SqlParameter
                 {
                     ParameterName = "@Result",
                     SqlDbType = SqlDbType.Int,
                     Direction = ParameterDirection.Output
                 };
 
-
-                var data = context.Database.SqlQuery<int>("[dbo].[Location_Add] @City, @Country, @Result OUT", cityParam,
+                context.Database.SqlQuery<int>("[dbo].[Location_Add] @City, @Country, @Result OUT", cityParam,
                     countryParam, resultParam);
 
                 return Convert.ToInt32(resultParam.Value);
