@@ -15,8 +15,7 @@ IF (@OfficeId != 0)
 		k.BrandId,
 		k.Quantity
 	FROM Offices o
-		LEFT JOIN BeerTaps b ON o.Id = b.OfficeId
-		LEFT JOIN Kegs k ON b.KegId = k.Id
+		LEFT JOIN Kegs k ON o.Id = k.OfficeId
 	WHERE 
 		o.Id = @OfficeId
 ELSE
@@ -29,6 +28,5 @@ ELSE
 		k.BrandId,
 		k.Quantity
 	FROM Offices o
-		LEFT JOIN BeerTaps b ON o.Id = b.OfficeId
-		LEFT JOIN Kegs k ON b.KegId = k.Id
+		LEFT JOIN Kegs k ON o.Id = k.OfficeId
 GO

@@ -7,7 +7,7 @@ using BeerTapHypermedia.DataAccess.Dtos;
 
 namespace BeerTapHypermedia.IntegrationTests.MockRepositories
 {
-    public class LocationRepositoryMock : ILocationRepository
+    public class LocationRepositoryMock 
     {
         private List<LocationDto> _locations;
 

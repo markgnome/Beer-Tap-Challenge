@@ -13,5 +13,6 @@ namespace BeerTapHypermedia.DataAccess.Dtos
         public int? Id { get; set; }
         public decimal? Quantity { get; set; }
         public int? BrandId { get; set; }
+        public int OfficeId { get; set; }
     }
 }

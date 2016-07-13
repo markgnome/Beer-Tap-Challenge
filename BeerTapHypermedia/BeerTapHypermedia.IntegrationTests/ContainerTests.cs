@@ -32,13 +32,6 @@ namespace BeerTapHypermedia.IntegrationTests
                     BootStrapper.Initialize(config, new DefaultApiContainer(config, windsorContainer), initializeHelpPage: false);
                     return windsorContainer;
                 });
-
-                fixture.Register(() =>
-                {
-                    IWindsorContainer container = new WindsorContainer();
-                    container.Resolve<ILocationRepository>();
-                    return container;
-                });
             }
         }
 

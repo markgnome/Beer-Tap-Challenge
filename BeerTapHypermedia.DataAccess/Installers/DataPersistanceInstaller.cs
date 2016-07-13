@@ -9,7 +9,7 @@ namespace BeerTapHypermedia.DataAccess.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-                Component.For<ILocationRepository>().ImplementedBy<LocationRepository>().LifestyleSingleton());
+                Component.For<IKegRepository>().ImplementedBy<KegRepository>().LifestyleSingleton());
 
             container.Register(
                Component.For<IOfficeRepository>().ImplementedBy<OfficeRepository>().LifestyleSingleton());
