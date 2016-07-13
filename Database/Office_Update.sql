@@ -1,16 +1,22 @@
 USE BeerTap
 GO
 
-ALTER PROCEDURE dbo.Location_Add 
-	@City nvarchar(50),
-	@Country nvarchar(50),
-	@Result INT OUTPUT 
+
+CREATE PROCEDURE dbo.Office_Update
+	@Name nvarchar(50),
+	@Description nvarchar(200),
+	@LocationId INT,
+	@Id INT 
+
 AS
 
-INSERT dbo.Locations (City, Country)
-VALUES (@City,  @Country)
+UPDATE dbo.Offices
+SET Name = @Name,
+	[Description] = @Description,
+	LocationId = @LocationId
 
-SELECT @Result = ISNULL(SCOPE_IDENTITY(), 0)  
+WHERE Id = @Id
+
 
 
 GO

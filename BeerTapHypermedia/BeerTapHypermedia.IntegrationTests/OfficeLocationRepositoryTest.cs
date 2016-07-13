@@ -40,7 +40,7 @@ namespace BeerTapHypermedia.IntegrationTests
             //var loc = _sut.Get(4);
             //assert to make sure it will return Id
             //loc.Id.ShouldBeEquivalentTo(4);
-            _sut.Update(new OfficeDto() {Name = "Regina", Description = "Regina Office", Id = 2, LocationId = 2});
+            _sut.Delete(6);
             var results = _sut.GetAll();
          }
 
