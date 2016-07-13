@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using IQ.DataPersistenceFramework.DAL;
 using IQ.Framework.Entities;
 
 namespace BeerTapHypermedia.DataAccess.Dtos
 {
-    public class OfficeDto : IIdentifiable<int>
+    public class OfficeDto 
     {
         /// <summary>
         /// Id of iQ Office
@@ -25,6 +26,7 @@ namespace BeerTapHypermedia.DataAccess.Dtos
         /// </summary>
         public int LocationId { get; set; }
 
+        public virtual ICollection<KegDto> Kegs { get; set; }
 
         
     }

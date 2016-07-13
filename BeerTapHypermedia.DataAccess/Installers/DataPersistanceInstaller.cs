@@ -12,6 +12,9 @@ namespace BeerTapHypermedia.DataAccess.Installers
                 Component.For<ILocationRepository>().ImplementedBy<LocationRepository>().LifestyleSingleton());
 
             container.Register(
+               Component.For<IOfficeRepository>().ImplementedBy<OfficeRepository>().LifestyleSingleton());
+
+            container.Register(
                 Component.For<IDatabaseContextFactory<BeerTapContext>>().ImplementedBy<DatabaseContextFactory>().LifestyleSingleton());
         }
     }

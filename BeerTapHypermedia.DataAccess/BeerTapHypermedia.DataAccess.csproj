@@ -83,13 +83,19 @@
       <DependentUpon>IDatabaseContextFactory.cs</DependentUpon>
     </Compile>
     <Compile Include="Dtos\BrandDto.cs" />
+    <Compile Include="Dtos\KegDto.cs" />
     <Compile Include="Dtos\LocationDto.cs" />
+    <Compile Include="Dtos\OfficeKegDto.cs" />
     <Compile Include="Dtos\OfficeDto.cs" />
     <Compile Include="IDatabaseContextFactory.cs" />
+    <Compile Include="IOfficeRepository.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Installers\DataPersistanceInstaller.cs" />
     <Compile Include="LocationRepository.cs">
       <DependentUpon>ILocationRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeRepository.cs">
+      <DependentUpon>IOfficeRepository.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

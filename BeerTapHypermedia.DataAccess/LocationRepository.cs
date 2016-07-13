@@ -21,13 +21,16 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                return context.Database.SqlQuery<LocationDto>("SELECT * FROM LOCATIONS").FirstOrDefault();
+                return context.Database.SqlQuery<LocationDto>("Select * From Locations Where Id = @Id", locationId).FirstOrDefault();
             }
         }
 
         public IEnumerable<LocationDto> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateContext())
+            {
+                return context.Database.SqlQuery<LocationDto>("Select * From Locations").ToList();
+            }
         }
 
         public int Save(LocationDto location)
@@ -62,12 +65,37 @@ namespace BeerTapHypermedia.DataAccess
 
         public void Update(LocationDto location)
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateContext())
+            {
+                var cityParam = new SqlParameter
+                {
+                    ParameterName = "@City",
+                    SqlDbType = SqlDbType.VarChar,
+                    Value = location.City
+                };
+                var countryParam = new SqlParameter
+                {
+                    ParameterName = "@Country",
+                    SqlDbType = SqlDbType.VarChar,
+                    Value = location.Country
+                };
+                var idParam = new SqlParameter
+                {
+                    ParameterName = "@Id",
+                    SqlDbType = SqlDbType.Int
+                };
+
+                context.Database.SqlQuery<int>("[dbo].[Location_Update] @Id, @City, @Country", idParam,
+                    countryParam, countryParam);
+            }
         }
 
         public void Delete(int locationId)
         {
-            throw new NotImplementedException();
+            using (var context = _contextFactory.CreateContext())
+            {
+                context.Database.ExecuteSqlCommand("DELETE FROM Locations WHERE Id = @Id", locationId);
+            }
         }
     }
 

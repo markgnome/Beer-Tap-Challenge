@@ -249,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerTests.cs" />
+    <Compile Include="OfficeLocationRepositoryTest.cs" />
     <Compile Include="LocationRepositoryTest.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
