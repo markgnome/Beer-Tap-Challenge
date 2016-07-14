@@ -249,11 +249,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerTests.cs" />
-    <Compile Include="OfficeLocationRepositoryTest.cs" />
+    <Compile Include="OfifceRepositoryTest.cs" />
     <Compile Include="LocationRepositoryTest.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MockRepositories\LocationRepositoryMock.cs" />
+    <Compile Include="MockRepositories\OfficeRepositoryMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

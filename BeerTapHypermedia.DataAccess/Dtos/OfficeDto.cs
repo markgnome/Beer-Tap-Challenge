@@ -26,7 +26,7 @@ namespace BeerTapHypermedia.DataAccess.Dtos
         /// </summary>
         public int LocationId { get; set; }
 
-        public virtual ICollection<KegDto> Kegs { get; set; }
+        
 
         
     }
