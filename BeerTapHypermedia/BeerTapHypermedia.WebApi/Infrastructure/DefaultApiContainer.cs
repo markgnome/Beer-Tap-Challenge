@@ -14,6 +14,7 @@ using IQ.Platform.Framework.WebApi.Services.Installers;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using BeerTapHypermedia.ApiServices;
 using BeerTapHypermedia.ApiServices.Security;
+using BeerTapHypermedia.DataAccess.Installers;
 using BeerTapHypermedia.Documentation.Installers;
 using BeerTapHypermedia.WebApi.Handlers;
 using BeerTapHypermedia.WebApi.Hypermedia;
@@ -56,6 +57,7 @@ namespace BeerTapHypermedia.WebApi.Infrastructure
 							 //TODO: It requires the "IQ.Auth.OAuth2.ProtectedResource.ZeroMQ.ZeroMQServerAddress" app setting. The AlwaysAuthenticateRequestAuthenticator has to be commented out as well
 							 new OAuthProtectedResourceComponentsInstaller(),
                              new SecurityMessageHandlersInstaller(Assembly.GetExecutingAssembly()),
+                             new DataPersistanceInstaller(), 
                          })
                          .InstallLogging();
 

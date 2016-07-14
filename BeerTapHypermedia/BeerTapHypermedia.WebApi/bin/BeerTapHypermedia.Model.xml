@@ -129,6 +129,11 @@
             Identification
             </summary>
         </member>
+        <member name="P:BeerTapHypermedia.Model.Keg.KegId">
+            <summary>
+            Keg Identifier from backend
+            </summary>
+        </member>
         <member name="P:BeerTapHypermedia.Model.Keg.KegState">
             <summary>
             Keg State 
@@ -136,7 +141,7 @@
         </member>
         <member name="P:BeerTapHypermedia.Model.Keg.Quantity">
             <summary>
-            Default is 5 gl = 18927 ml
+            Default is 5 gl = 2000 ml
             </summary>
         </member>
         <member name="P:BeerTapHypermedia.Model.Keg.Brand">
@@ -162,6 +167,11 @@
         <member name="P:BeerTapHypermedia.Model.Office.Id">
             <summary>
             Unique Identifier for the Office
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.OfficeId">
+            <summary>
+            Office Id 
             </summary>
         </member>
         <member name="P:BeerTapHypermedia.Model.Office.Name">

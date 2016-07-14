@@ -17,13 +17,17 @@ namespace BeerTapHypermedia.Model
         /// <summary>
         /// Default Full Quantity of a Keg
         /// </summary>
-        public const decimal FullQuantity = 18927; // in ml = 5 gallons
+        public const decimal FullQuantity = 2000; // in ml = 5 gallons
 
         /// <summary>
         /// Identification
         /// </summary>
         public string Id { get; set; }
 
+        /// <summary>
+        /// Keg Identifier from backend
+        /// </summary>
+        public int KegId { get; set; }
         /// <summary>
         /// Keg State 
         /// </summary>
@@ -41,7 +45,7 @@ namespace BeerTapHypermedia.Model
         }
 
         /// <summary>
-        /// Default is 5 gl = 18927 ml
+        /// Default is 5 gl = 2000 ml
         /// </summary>
         public decimal Quantity { get; set; } 
 

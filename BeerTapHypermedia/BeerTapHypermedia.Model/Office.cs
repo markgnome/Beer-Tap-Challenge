@@ -9,12 +9,17 @@ namespace BeerTapHypermedia.Model
     /// <summary>
     /// A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.
     /// </summary>
-    public class Office : IStatelessResource, IIdentifiable<string>
+    public class Office : IStatelessResource, IIdentifiable<int>
     {
         /// <summary>
         /// Unique Identifier for the Office
         /// </summary>
-        public string Id { get; set; }
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Office Id 
+        /// </summary>
+        public int OfficeId { get; set; }
 
         /// <summary>
         /// Name for the Office
