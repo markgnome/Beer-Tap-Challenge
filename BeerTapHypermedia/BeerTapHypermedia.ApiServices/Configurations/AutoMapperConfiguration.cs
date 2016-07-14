@@ -13,10 +13,9 @@ namespace BeerTapHypermedia.ApiServices.Configurations
     {
         public static void RegisterMappings()
         {
-            Mapper.CreateMap<KegDto, Keg>();
-            Mapper.CreateMap<OfficeKegDto, Office>();
-            //Mapper.CreateMap<List<KegDto>, IEnumerable<Keg>>();
-            //Mapper.CreateMap<IEnumerable<OfficeKegDto>, IEnumerable<Office>>();
+            Mapper.CreateMap<KegDto, Keg>().ReverseMap();
+            Mapper.CreateMap<OfficeKegDto, Office>().ReverseMap();
+            Mapper.CreateMap<Office, OfficeDto>().ReverseMap();
         }
     }
 }

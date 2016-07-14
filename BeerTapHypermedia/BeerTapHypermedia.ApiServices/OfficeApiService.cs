@@ -12,6 +12,8 @@ using BeerTapHypermedia.Model;
 using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
 using AutoMapper;
+using BeerTapHypermedia.DataAccess.Dtos;
+
 namespace BeerTapHypermedia.ApiServices
 {
     public class OfficeApiService : IOfficeApiService
@@ -21,8 +23,7 @@ namespace BeerTapHypermedia.ApiServices
         private readonly IOfficeRepository _officeRepository;
         public OfficeApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IOfficeRepository officeRepository)
         {
-            if (userProvider == null)
-                throw new ArgumentNullException("userProvider");
+            if (userProvider == null) throw new ArgumentNullException("userProvider");
             _userProvider = userProvider;
             _officeRepository = officeRepository;
         }
@@ -44,7 +45,10 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<ResourceCreationResult<Office, int>> CreateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var resultId = _officeRepository.Save(Mapper.Map<OfficeDto>(resource));
+            var officeKegDto = _officeRepository.Get(resultId);
+            var officeModel = Mapper.Map<Office>(officeKegDto);
+           return Task.FromResult(new ResourceCreationResult<Office, int>(officeModel));
         }
 
         public Task<Office> UpdateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
