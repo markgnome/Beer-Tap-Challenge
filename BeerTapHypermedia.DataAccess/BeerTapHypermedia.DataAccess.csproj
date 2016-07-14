@@ -88,11 +88,15 @@
     <Compile Include="Dtos\OfficeKegDto.cs" />
     <Compile Include="Dtos\OfficeDto.cs" />
     <Compile Include="IDatabaseContextFactory.cs" />
+    <Compile Include="IOfficeKegRepository.cs" />
     <Compile Include="IKegRepository.cs" />
     <Compile Include="IOfficeRepository.cs" />
     <Compile Include="Installers\DataPersistanceInstaller.cs" />
     <Compile Include="KegRepository.cs">
       <DependentUpon>IKegRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeKegRepository.cs">
+      <DependentUpon>IOfficeKegRepository.cs</DependentUpon>
     </Compile>
     <Compile Include="OfficeRepository.cs">
       <DependentUpon>IOfficeRepository.cs</DependentUpon>

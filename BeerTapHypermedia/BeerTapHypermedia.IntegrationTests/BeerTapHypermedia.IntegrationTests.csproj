@@ -101,6 +101,10 @@
       <HintPath>..\..\packages\IQ.Auth.OAuth2.ProtectedResource.ZeroMQ.2.24.0.2084\lib\net40\IQ.Auth.OAuth2.ZeroMQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="IQ.DataPersistenceFramework, Version=1.3.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IQ.DataPersistenceFramework.1.3.0.8\lib\net45\IQ.DataPersistenceFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="IQ.Foundation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b998e1ab7718321e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\IQ.Foundation.1.1.0.1498\lib\net40\IQ.Foundation.dll</HintPath>
       <Private>True</Private>
@@ -111,6 +115,10 @@
     </Reference>
     <Reference Include="IQ.Foundation.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\IQ.Foundation.WebApi.1.1.0.1498\lib\net40\IQ.Foundation.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IQ.Framework, Version=4.2.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IQ.Framework.4.2.0.9\lib\net40-Client\IQ.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="IQ.Platform.Framework.Common, Version=3.22.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -182,8 +190,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ploeh.AutoFixture, Version=3.20.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -249,8 +257,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerTests.cs" />
-    <Compile Include="OfifceRepositoryTest.cs" />
-    <Compile Include="LocationRepositoryTest.cs" />
+    <Compile Include="KegRepositoryTest.cs" />
+    <Compile Include="OfficeRepositoryTest.cs" />
+    <Compile Include="OfficeKegRepositoryTest.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MockRepositories\OfficeRepositoryMock.cs" />

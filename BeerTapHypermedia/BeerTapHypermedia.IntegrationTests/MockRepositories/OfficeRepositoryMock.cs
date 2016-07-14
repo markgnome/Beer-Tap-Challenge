@@ -24,9 +24,15 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
 
         public OfficeKegDto Get(int officeId)
         {
-            var officeKeg = _officeKegs.First();
-            officeKeg.Id = officeId;
-            return officeKeg;
+            var office = _offices.First(o => o.Id == officeId);
+            return new OfficeKegDto()
+            {
+                Id = officeId,
+                Name = office.Name,
+                Description = office.Description,
+                LocationId = office.LocationId,
+                Kegs = _kegs.Where(k => k.OfficeId == officeId).ToList()
+            };
         }
 
         public IEnumerable<OfficeKegDto> GetAll()
@@ -81,7 +87,7 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
         {
             _kegs = new List<KegDto>()
             {
-                new KegDto() {Id = 1, Quantity = 100, BrandId = 1, OfficeId = 1}
+                new KegDto() {KegId = 1, Quantity = 100, BrandId = 1, OfficeId = 1}
             };
             IEnumerable<KegDto> results = _kegs;
             return results;

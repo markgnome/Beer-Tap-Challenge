@@ -16,13 +16,13 @@ using Ploeh.AutoFixture;
 
 namespace BeerTapHypermedia.IntegrationTests
 {
-    public class OfifceRepositoryTest : IDisposable
+    public class OfficeRepositoryTest : IDisposable
     {
         private readonly IWindsorContainer _container;
         private readonly IOfficeRepository _sut;
 
 
-        public OfifceRepositoryTest()
+        public OfficeRepositoryTest()
         {
             _container = new WindsorContainer();
             _container.Register(Component.For<IOfficeRepository>().ImplementedBy<OfficeRepositoryMock>().LifestyleSingleton());

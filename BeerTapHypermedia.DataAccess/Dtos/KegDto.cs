@@ -10,7 +10,7 @@ namespace BeerTapHypermedia.DataAccess.Dtos
     public class KegDto
     {
         [Key]
-        public int? Id { get; set; }
+        public int? KegId { get; set; }
         public decimal? Quantity { get; set; }
         public int? BrandId { get; set; }
         public int OfficeId { get; set; }

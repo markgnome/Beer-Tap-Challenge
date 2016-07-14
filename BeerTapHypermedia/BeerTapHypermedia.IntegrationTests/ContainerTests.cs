@@ -4,7 +4,7 @@ using System.Web.Http;
 using BeerTapHypermedia.DataAccess;
 using Castle.Windsor;
 using FluentAssertions;
-using IQ.Platform.Framework.Common;
+//using IQ.Platform.Framework.Common;
 using IQ.Platform.Framework.WebApi;
 using IQ.Platform.Framework.WebApi.Helpers;
 using IQ.Platform.Framework.WebApi.Infrastructure;
@@ -50,7 +50,7 @@ namespace BeerTapHypermedia.IntegrationTests
 
             var resourcesAssembly = typeof(LinkRelations).Assembly;
             var helper = new ResourceRelatedGenericTypesResolver(new TypesHelper(), resourcesAssembly);
-            var allResources = ResourceRelatedGenericTypesResolver.GetDefaultResourceTypesSelector(resourcesAssembly)();
+            Type[] allResources = ResourceRelatedGenericTypesResolver.GetDefaultResourceTypesSelector(resourcesAssembly)();
 
             // resolve api controller for each found resource
             allResources

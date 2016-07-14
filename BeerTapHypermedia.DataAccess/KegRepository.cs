@@ -45,7 +45,7 @@ namespace BeerTapHypermedia.DataAccess
                 var kegBrand = new SqlParameter { ParameterName = "@BrandId", SqlDbType = SqlDbType.Int, Value = keg.BrandId };
                 var kegOffice = new SqlParameter { ParameterName = "@OfficeId", SqlDbType = SqlDbType.Int, Value = keg.OfficeId };
                 var taskResult =
-                    context.Database.SqlQuery<decimal>("[dbo].[Keg_Create] @Quantity, @Brand, @OfficedId", kegQuantity, kegBrand, kegOffice)
+                    context.Database.SqlQuery<decimal>("[dbo].[Keg_Create] @Quantity, @BrandId, @OfficeId", kegQuantity, kegBrand, kegOffice)
                         .FirstAsync()
                         .Result;
                 return Convert.ToInt32(taskResult);
@@ -58,8 +58,8 @@ namespace BeerTapHypermedia.DataAccess
             {
                 var kegQuantity = new SqlParameter { ParameterName = "@Quantity", SqlDbType = SqlDbType.Decimal, Value = keg.Quantity };
                 var kegBrand = new SqlParameter { ParameterName = "@BrandId", SqlDbType = SqlDbType.Int, Value = keg.BrandId };
-                var kegId = new SqlParameter { ParameterName = "@KegId", SqlDbType = SqlDbType.Int, Value = keg.Id };
-                context.Database.ExecuteSqlCommand("[dbo].[Keg_Update] @Quantity, @BrandId, @Id", kegQuantity, kegBrand, kegId);
+                var kegId = new SqlParameter { ParameterName = "@KegId", SqlDbType = SqlDbType.Int, Value = keg.KegId };
+                context.Database.ExecuteSqlCommand("[dbo].[Keg_Update] @Quantity, @BrandId, @KegId", kegQuantity, kegBrand, kegId);
             }
         }
 

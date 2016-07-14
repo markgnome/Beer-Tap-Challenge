@@ -34,7 +34,7 @@ namespace BeerTapHypermedia.DataAccess
                     officeKeg.Description = officeKegDto.Description;
                     officeKeg.LocationId = officeKegDto.LocationId;
                     if(officeKegDto.KegId != null)
-                        officeKeg.Kegs.Add(new KegDto() {Id = officeKegDto.KegId, Quantity = officeKegDto.Quantity, BrandId = officeKegDto.BrandId });
+                        officeKeg.Kegs.Add(new KegDto() {KegId = officeKegDto.KegId, Quantity = officeKegDto.Quantity, BrandId = officeKegDto.BrandId });
                 }
                 return officeKeg;
             }
@@ -65,7 +65,7 @@ namespace BeerTapHypermedia.DataAccess
                     officeKegs.First(o => o.Id == officeKegDto.Id).Kegs = new List<KegDto>();
                     officeKegs.First(o => o.Id == officeKegDto.Id).Kegs.Add(new KegDto
                     {
-                        Id = officeKegDto.KegId,
+                        KegId = officeKegDto.KegId,
                         BrandId = officeKegDto.BrandId,
                         Quantity = officeKegDto.Quantity
                     });
