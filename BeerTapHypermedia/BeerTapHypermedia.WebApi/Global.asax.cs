@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using BeerTapHypermedia.ApiServices.Configurations;
 using BeerTapHypermedia.WebApi.Infrastructure;
 
 namespace BeerTapHypermedia.WebApi
@@ -10,6 +11,7 @@ namespace BeerTapHypermedia.WebApi
         protected void Application_Start()
         {
             BootStrapper.Initialize(GlobalConfiguration.Configuration);
+            AutoMapperConfiguration.RegisterMappings();
         }
     }
 }

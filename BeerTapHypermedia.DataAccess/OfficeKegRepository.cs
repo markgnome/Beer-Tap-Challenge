@@ -23,7 +23,7 @@ namespace BeerTapHypermedia.DataAccess
 
         public void Change(int kegId, int brandId)
         {
-            _kegRepository.Update(new KegDto() { KegId = kegId, BrandId = brandId, Quantity = 18927 });
+            _kegRepository.Update(new KegDto() { KegId = kegId, BrandId = brandId, Quantity = 2000 });
         }
 
         public void Replace(int kegId)

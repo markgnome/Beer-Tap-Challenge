@@ -129,6 +129,11 @@
             Identification
             </summary>
         </member>
+        <member name="P:BeerTapHypermedia.Model.Keg.KegId">
+            <summary>
+            Keg Identifier from backend
+            </summary>
+        </member>
         <member name="P:BeerTapHypermedia.Model.Keg.KegState">
             <summary>
             Keg State 
@@ -136,12 +141,17 @@
         </member>
         <member name="P:BeerTapHypermedia.Model.Keg.Quantity">
             <summary>
-            Default is 5 gl = 18927 ml
+            Default is 5 gl = 2000 ml
             </summary>
         </member>
         <member name="P:BeerTapHypermedia.Model.Keg.Brand">
             <summary>
             Keg Brand of Beer
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Keg.OfficeId">
+            <summary>
+            Office 
             </summary>
         </member>
         <member name="T:BeerTapHypermedia.Model.LinkRelations">
@@ -154,6 +164,36 @@
             link relation to describe the Identity resource.
             </summary>
         </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg">
+            <summary>
+            link relation to describe the Identity resouce
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.LinkRelations.Kegs">
+            <summary>
+            Action link for beer kegs
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.Kurl">
+            <summary>
+            Link to describe multiple kegs
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.ReplaceKeg">
+            <summary>
+            action link to replace keg from office
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.ChangeKeg">
+            <summary>
+            action link to change keg from office
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.TapBeer">
+            <summary>
+            Get a pint of beer 
+            </summary>
+        </member>
         <member name="T:BeerTapHypermedia.Model.Office">
             <summary>
             A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.
@@ -162,6 +202,11 @@
         <member name="P:BeerTapHypermedia.Model.Office.Id">
             <summary>
             Unique Identifier for the Office
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.Office.OfficeId">
+            <summary>
+            Office Id 
             </summary>
         </member>
         <member name="P:BeerTapHypermedia.Model.Office.Name">

@@ -12,18 +12,22 @@ namespace BeerTapHypermedia.Model
     /// <summary>
     /// Keg Entity Class
     /// </summary>
-    public class Keg : IStatefulResource<KegState>, IIdentifiable<string>, IStatefulKeg
+    public class Keg :  IIdentifiable<int>, IStatefulKeg, IStatefulResource<KegState>
     {
         /// <summary>
         /// Default Full Quantity of a Keg
         /// </summary>
-        public const decimal FullQuantity = 18927; // in ml = 5 gallons
+        public const decimal FullQuantity = 2000; // in ml = 5 gallons
 
         /// <summary>
         /// Identification
         /// </summary>
-        public string Id { get; set; }
+        public int Id => KegId;
 
+        /// <summary>
+        /// Keg Identifier from backend
+        /// </summary>
+        public int KegId { get; set; }
         /// <summary>
         /// Keg State 
         /// </summary>
@@ -41,7 +45,7 @@ namespace BeerTapHypermedia.Model
         }
 
         /// <summary>
-        /// Default is 5 gl = 18927 ml
+        /// Default is 5 gl = 2000 ml
         /// </summary>
         public decimal Quantity { get; set; } 
 
@@ -49,6 +53,10 @@ namespace BeerTapHypermedia.Model
         /// Keg Brand of Beer
         /// </summary>
         public KegBrand Brand { get; set; }
+        /// <summary>
+        /// Office 
+        /// </summary>
+        public int OfficeId { get; set; }
 
     }
 }

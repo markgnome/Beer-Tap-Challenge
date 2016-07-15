@@ -6,6 +6,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using BeerTapHypermedia.DataAccess.Dtos;
 using Castle.Core;
+using IQ.Framework.Patterns.Mapping;
 
 namespace BeerTapHypermedia.DataAccess
 {
@@ -42,33 +43,39 @@ namespace BeerTapHypermedia.DataAccess
 
         public IEnumerable<OfficeKegDto> GetAll()
         {
+            var offices = new List<OfficeDto>();
             using (var context = _contextFactory.CreateContext())
             {
                 var officeIdParam = new SqlParameter {ParameterName = "@OfficeId", SqlDbType = SqlDbType.Int, Value = 0};
-                var results =
-                    context.Database.SqlQuery<OfficeKegDto>("[dbo].[Office_Select] @OfficeId", officeIdParam).ToList();
-                var officeKegsResult =
-                    results.GroupBy(
-                        o =>
-                            new OfficeKegDto
-                            {
-                                Id = o.Id,
-                                Name = o.Name,
-                                Description = o.Description,
-                                LocationId = o.LocationId
-                            }).Select(k => k.First());
-
-                var officeKegs = officeKegsResult.ToList();
+                var results = context.Database.SqlQuery<OfficeKegDto>("[dbo].[Office_Select] @OfficeId", officeIdParam).ToList();
                 foreach (var officeKegDto in results)
                 {
-                    if (officeKegDto.KegId == null) continue;
-                    officeKegs.First(o => o.Id == officeKegDto.Id).Kegs = new List<KegDto>();
-                    officeKegs.First(o => o.Id == officeKegDto.Id).Kegs.Add(new KegDto
+                    if(!offices.Exists(o => o.Id == officeKegDto.Id))
+                    offices.Add(new OfficeDto() {Id = officeKegDto.Id, Name = officeKegDto.Name, Description = officeKegDto.Description, LocationId = officeKegDto.LocationId });
+                }
+                var officeKegs = new List<OfficeKegDto>();
+                foreach (var office in offices)
+                {
+                    var officeKeg = new OfficeKegDto()
                     {
-                        KegId = officeKegDto.KegId,
-                        BrandId = officeKegDto.BrandId,
-                        Quantity = officeKegDto.Quantity
-                    });
+                        Id = office.Id,
+                        Name = office.Name,
+                        Description = office.Description,
+                        Kegs = new List<KegDto>()
+                    };
+
+                    foreach (var officeKegDto in results)
+                    {
+                        if (officeKegDto.KegId == null || office.Id != officeKegDto.Id) continue;
+                        officeKeg.Kegs.Add(
+                            new KegDto
+                            {
+                                KegId = officeKegDto.KegId,
+                                BrandId = officeKegDto.BrandId,
+                                Quantity = officeKegDto.Quantity
+                            });
+                    }
+                    officeKegs.Add(officeKeg);
                 }
                 return officeKegs;
             }

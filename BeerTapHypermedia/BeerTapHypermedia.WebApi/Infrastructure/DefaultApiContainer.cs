@@ -14,6 +14,7 @@ using IQ.Platform.Framework.WebApi.Services.Installers;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using BeerTapHypermedia.ApiServices;
 using BeerTapHypermedia.ApiServices.Security;
+using BeerTapHypermedia.DataAccess.Installers;
 using BeerTapHypermedia.Documentation.Installers;
 using BeerTapHypermedia.WebApi.Handlers;
 using BeerTapHypermedia.WebApi.Hypermedia;
@@ -38,10 +39,10 @@ namespace BeerTapHypermedia.WebApi.Infrastructure
             _domainServiceResolver = domainServiceResolver;
         }
 
-        public override Assembly ResourceAssembly { get { return typeof(LinkRelations).Assembly; } }
-        protected override Assembly ResourceSpecsAssembly { get { return typeof(OfficeSpec).Assembly; } }
-        protected override Assembly ResourceStateProvidersAssembly { get { return typeof(OfficeSpec).Assembly; } }
-        protected override Assembly ApiAppServicesAssembly { get { return typeof(OfficeApiService).Assembly; } }
+        public override Assembly ResourceAssembly => typeof(LinkRelations).Assembly;
+        protected override Assembly ResourceSpecsAssembly => typeof(OfficeSpec).Assembly;
+        protected override Assembly ResourceStateProvidersAssembly => typeof(KegSpec).Assembly;
+        protected override Assembly ApiAppServicesAssembly => typeof(OfficeApiService).Assembly;
 
 
         protected override void RegisterCustomDependencies()
@@ -56,6 +57,7 @@ namespace BeerTapHypermedia.WebApi.Infrastructure
 							 //TODO: It requires the "IQ.Auth.OAuth2.ProtectedResource.ZeroMQ.ZeroMQServerAddress" app setting. The AlwaysAuthenticateRequestAuthenticator has to be commented out as well
 							 new OAuthProtectedResourceComponentsInstaller(),
                              new SecurityMessageHandlersInstaller(Assembly.GetExecutingAssembly()),
+                             new DataPersistanceInstaller(), 
                          })
                          .InstallLogging();
 

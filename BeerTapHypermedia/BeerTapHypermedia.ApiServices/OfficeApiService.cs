@@ -7,9 +7,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using IQ.Platform.Framework.WebApi.Services.Security;
 using BeerTapHypermedia.ApiServices.Security;
+using BeerTapHypermedia.DataAccess;
 using BeerTapHypermedia.Model;
 using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
+using AutoMapper;
+using BeerTapHypermedia.DataAccess.Dtos;
 
 namespace BeerTapHypermedia.ApiServices
 {
@@ -17,77 +20,52 @@ namespace BeerTapHypermedia.ApiServices
     {
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
-
-        public OfficeApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider)
+        private readonly IOfficeRepository _officeRepository;
+        public OfficeApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IOfficeRepository officeRepository)
         {
-            if (userProvider == null)
-                throw new ArgumentNullException("userProvider");
+            if (userProvider == null) throw new ArgumentNullException("userProvider");
             _userProvider = userProvider;
+            _officeRepository = officeRepository;
         }
 
 
-        public Task<Office> GetAsync(string id, IRequestContext context, CancellationToken cancellation)
+        public Task<Office> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
-            var offices = GetManyAsync(context, cancellation).Result;
-            var office = offices.FirstOrDefault(o => o.Id == id);
-            return Task.FromResult(office);
+            var officeDto = _officeRepository.Get(Convert.ToInt32(id));
+            var officeModel = Mapper.Map<Office>(officeDto);
+            return Task.FromResult(officeModel);
         }
 
         public Task<IEnumerable<Office>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
             var offices = new List<Office>();
-            
-            foreach (OfficeLocation location in Enum.GetValues(typeof(OfficeLocation)))
-            {
-                var officeId = ((int) location).ToString();
-                var hq = location == OfficeLocation.Vancouver ? "- HQ" : string.Empty;
-                var tapCount = Convert.ToInt32(ConfigurationManager.AppSettings[officeId]);
-                var kegs = new List<Keg>();
-                // generate kegs
-                for (var i = 0; i < tapCount; i++)
-                {
-                    kegs.Add(new Keg()
-                    {
-                        Id = i.ToString(),
-                        Brand = GetRandomKegBrand(),
-                        Quantity = Keg.FullQuantity
-                    });
-                }
-                // set kegs
-                var office = new Office
-                {
-                    Description = $"iQ Office {location}{hq}",
-                    Id = officeId,
-                    Location = location,
-                    Name = $"iQ {location}",
-                    Kegs = kegs
-                };
-                offices.Add(office);    
-            }
-            IEnumerable<Office> iOffices = offices;
-            return Task.FromResult(iOffices);
+            var allOffices = _officeRepository.GetAll();
+            return Task.FromResult(Mapper.Map<IEnumerable<Office>>(allOffices));
         }
 
-        public Task<ResourceCreationResult<Office, string>> CreateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<Office, int>> CreateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var resultId = _officeRepository.Save(Mapper.Map<OfficeDto>(resource));
+            var officeKegDto = _officeRepository.Get(resultId);
+            var officeModel = Mapper.Map<Office>(officeKegDto);
+           return Task.FromResult(new ResourceCreationResult<Office, int>(officeModel));
         }
 
         public Task<Office> UpdateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var officeDto = Mapper.Map<OfficeDto>(resource);
+            _officeRepository.Update(officeDto);
+            return Task.FromResult(resource);
         }
 
-        public Task DeleteAsync(ResourceOrIdentifier<Office, string> input, IRequestContext context, CancellationToken cancellation)
+        public Task DeleteAsync(ResourceOrIdentifier<Office, int> input, IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
-        }
-
-        private KegBrand GetRandomKegBrand()
-        {
-            var values = Enum.GetValues(typeof(KegBrand));
-            var random = new Random();
-            return (KegBrand)values.GetValue(random.Next(values.Length));
+            if (input.HasResource)
+            {
+                _officeRepository.Delete(input.Id);
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false);
         }
     }
 }
