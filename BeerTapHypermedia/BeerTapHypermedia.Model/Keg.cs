@@ -12,7 +12,7 @@ namespace BeerTapHypermedia.Model
     /// <summary>
     /// Keg Entity Class
     /// </summary>
-    public class Keg :  IIdentifiable<int>, IStatelessResource
+    public class Keg :  IIdentifiable<int>, IStatefulKeg, IStatefulResource<KegState>
     {
         /// <summary>
         /// Default Full Quantity of a Keg
@@ -22,7 +22,7 @@ namespace BeerTapHypermedia.Model
         /// <summary>
         /// Identification
         /// </summary>
-        public int Id { get; set; }
+        public int Id => KegId;
 
         /// <summary>
         /// Keg Identifier from backend
@@ -53,6 +53,10 @@ namespace BeerTapHypermedia.Model
         /// Keg Brand of Beer
         /// </summary>
         public KegBrand Brand { get; set; }
+        /// <summary>
+        /// Office 
+        /// </summary>
+        public int OfficeId { get; set; }
 
     }
 }

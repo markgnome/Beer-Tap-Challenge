@@ -149,6 +149,11 @@
             Keg Brand of Beer
             </summary>
         </member>
+        <member name="P:BeerTapHypermedia.Model.Keg.OfficeId">
+            <summary>
+            Office 
+            </summary>
+        </member>
         <member name="T:BeerTapHypermedia.Model.LinkRelations">
             <summary>
             iQmetrix link relation names

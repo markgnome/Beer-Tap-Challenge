@@ -13,8 +13,8 @@ namespace BeerTapHypermedia.ApiServices.Configurations
     {
         public static void RegisterMappings()
         {
-            Mapper.CreateMap<KegDto, Keg>().ReverseMap();
-            Mapper.CreateMap<OfficeKegDto, Office>().ReverseMap();
+            Mapper.CreateMap<KegDto, Keg>().ForMember(d => d.Brand, s => s.MapFrom(c => c.BrandId)).ReverseMap();
+            Mapper.CreateMap<OfficeKegDto, Office>().ForMember(d => d.Location, s => s.MapFrom(c => c.LocationId)).ReverseMap();
             Mapper.CreateMap<Office, OfficeDto>().ReverseMap();
         }
     }
