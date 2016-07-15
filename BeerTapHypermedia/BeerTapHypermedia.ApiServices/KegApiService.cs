@@ -47,6 +47,7 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<ResourceCreationResult<Keg, int>> CreateAsync(Keg resource, IRequestContext context, CancellationToken cancellation)
         {
+            resource.Quantity = Keg.FullQuantity;
             var resultId = _kegRepository.Save(Mapper.Map<KegDto>(resource));
             var newKegDto = _kegRepository.Get(resultId);
             var keg = Mapper.Map<Keg>(newKegDto);
