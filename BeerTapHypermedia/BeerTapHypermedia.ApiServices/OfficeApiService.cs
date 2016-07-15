@@ -53,12 +53,19 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<Office> UpdateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var officeDto = Mapper.Map<OfficeDto>(resource);
+            _officeRepository.Update(officeDto);
+            return Task.FromResult(resource);
         }
 
         public Task DeleteAsync(ResourceOrIdentifier<Office, int> input, IRequestContext context, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            if (input.HasResource)
+            {
+                _officeRepository.Delete(input.Id);
+                return Task.FromResult(true);
+            }
+            return Task.FromResult(false);
         }
     }
 }

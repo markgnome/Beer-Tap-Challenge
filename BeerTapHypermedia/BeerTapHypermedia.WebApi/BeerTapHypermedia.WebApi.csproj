@@ -296,6 +296,7 @@
     </Compile>
     <Compile Include="Handlers\NullUserContext.cs" />
     <Compile Include="Handlers\PutYourApiSafeNameUserContextProvidingHandler.cs" />
+    <Compile Include="Hypermedia\KegSpec.cs" />
     <Compile Include="Hypermedia\KegStateProvider.cs" />
     <Compile Include="Hypermedia\OfficeSpec.cs" />
     <Compile Include="Infrastructure\BootStrapper.cs" />

@@ -159,6 +159,36 @@
             link relation to describe the Identity resource.
             </summary>
         </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg">
+            <summary>
+            link relation to describe the Identity resouce
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.LinkRelations.Kegs">
+            <summary>
+            Action link for beer kegs
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.Kurl">
+            <summary>
+            Link to describe multiple kegs
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.ReplaceKeg">
+            <summary>
+            action link to replace keg from office
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.ChangeKeg">
+            <summary>
+            action link to change keg from office
+            </summary>
+        </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.TapBeer">
+            <summary>
+            Get a pint of beer 
+            </summary>
+        </member>
         <member name="T:BeerTapHypermedia.Model.Office">
             <summary>
             A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.

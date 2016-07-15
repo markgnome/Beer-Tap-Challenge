@@ -39,10 +39,10 @@ namespace BeerTapHypermedia.WebApi.Infrastructure
             _domainServiceResolver = domainServiceResolver;
         }
 
-        public override Assembly ResourceAssembly { get { return typeof(LinkRelations).Assembly; } }
-        protected override Assembly ResourceSpecsAssembly { get { return typeof(OfficeSpec).Assembly; } }
-        protected override Assembly ResourceStateProvidersAssembly { get { return typeof(OfficeSpec).Assembly; } }
-        protected override Assembly ApiAppServicesAssembly { get { return typeof(OfficeApiService).Assembly; } }
+        public override Assembly ResourceAssembly => typeof(LinkRelations).Assembly;
+        protected override Assembly ResourceSpecsAssembly => typeof(OfficeSpec).Assembly;
+        protected override Assembly ResourceStateProvidersAssembly => typeof(KegSpec).Assembly;
+        protected override Assembly ApiAppServicesAssembly => typeof(OfficeApiService).Assembly;
 
 
         protected override void RegisterCustomDependencies()

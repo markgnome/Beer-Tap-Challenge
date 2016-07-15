@@ -187,8 +187,10 @@
   <ItemGroup>
     <Compile Include="Configurations\AutoMapperConfiguration.cs" />
     <Compile Include="IDomainServiceResolver.cs" />
+    <Compile Include="IKegApiService.cs" />
     <Compile Include="IOfficeApiService.cs" />
     <Compile Include="LinksParametersSource.cs" />
+    <Compile Include="KegApiService.cs" />
     <Compile Include="OfficeApiService.cs">
       <DependentUpon>IOfficeApiService.cs</DependentUpon>
     </Compile>
