@@ -124,12 +124,12 @@
             Default Full Quantity of a Keg
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.KegModel.Id">
+        <member name="P:BeerTapHypermedia.Model.KegModel.KegId">
             <summary>
             Identification
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.KegModel.KegId">
+        <member name="P:BeerTapHypermedia.Model.KegModel.Id">
             <summary>
             Keg Identifier from backend
             </summary>

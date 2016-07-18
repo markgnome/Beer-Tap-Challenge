@@ -19,7 +19,7 @@ namespace BeerTapHypermedia.Model
         /// <summary>
         /// Office Id 
         /// </summary>
-        public int OfficeId { get; set; }
+        public int OfficeId => Id;
 
         /// <summary>
         /// Name for the Office

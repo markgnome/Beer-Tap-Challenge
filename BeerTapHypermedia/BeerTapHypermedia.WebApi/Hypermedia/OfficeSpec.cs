@@ -21,7 +21,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                   {
                       Links =
                       {
-                           CreateLinkTemplate(LinkRelations.Office , OfficeSpec.Uri , r => r.OfficeId),
+                           CreateLinkTemplate(LinkRelations.Office , Uri , r => r.OfficeId),
                       },
                       Operations = new StateSpecOperationsSource<OfficeModel, int>
                       {

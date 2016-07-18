@@ -21,18 +21,23 @@ namespace BeerTapHypermedia.ApiServices
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
         private readonly IOfficeRepository _officeRepository;
-        public OfficeApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IOfficeRepository officeRepository)
+        private readonly IKegRepository _kegRepository;
+        public OfficeApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IOfficeRepository officeRepository, IKegRepository kegRepository)
         {
             if (userProvider == null) throw new ArgumentNullException("userProvider");
             _userProvider = userProvider;
             _officeRepository = officeRepository;
+            _kegRepository = kegRepository;
         }
 
 
         public Task<OfficeModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
             var officeDto = _officeRepository.Get(Convert.ToInt32(id));
+            var kegsDto = _kegRepository.GetAll(officeDto.Id);
+            var kegsModel = Mapper.Map<List<KegModel>>(kegsDto);
             var officeModel = Mapper.Map<OfficeModel>(officeDto);
+            officeModel.Kegs = kegsModel;
             return Task.FromResult(officeModel);
         }
 

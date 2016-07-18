@@ -22,12 +22,12 @@ namespace BeerTapHypermedia.Model
         /// <summary>
         /// Identification
         /// </summary>
-        public int Id => KegId;
+        public int KegId => Id;
 
         /// <summary>
         /// Keg Identifier from backend
         /// </summary>
-        public int KegId { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// Keg State 
         /// </summary>

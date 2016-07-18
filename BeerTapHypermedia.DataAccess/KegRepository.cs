@@ -28,11 +28,11 @@ namespace BeerTapHypermedia.DataAccess
             }
         }
 
-        public IEnumerable<Keg> GetAll()
+        public IEnumerable<Keg> GetAll(int? officeId = null)
         {
             using (var context = _contextFactory.CreateContext())
             {
-                return context.Kegs.ToList();
+                return officeId != null ? context.Kegs.Where(k => k.OfficeId == officeId.Value).ToList() : context.Kegs.ToList();
             }
         }
 

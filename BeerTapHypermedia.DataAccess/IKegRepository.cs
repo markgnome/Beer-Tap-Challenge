@@ -6,7 +6,7 @@ namespace BeerTapHypermedia.DataAccess
     public interface IKegRepository
     {
         Keg Get(int kegId);
-        IEnumerable<Keg> GetAll();
+        IEnumerable<Keg> GetAll(int? officeId = null);
         int Save(Keg keg);
         void Update(Keg keg);
         void Delete(int kegId);
