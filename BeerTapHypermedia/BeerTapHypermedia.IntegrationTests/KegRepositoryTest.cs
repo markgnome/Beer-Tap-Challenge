@@ -32,9 +32,9 @@ namespace BeerTapHypermedia.IntegrationTests
 
         [Fact]
         public void ShouldCreateNewKeg()
-         {
+        {
             //arrange
-            var dto = new Keg() {BrandId = 0, OfficeId = 1, Quantity = 500};
+            var dto = new Keg() { BrandId = 0, OfficeId = 1, Quantity = 2000 };
 
             //act
             var returnKegId = _sut.Save(dto);

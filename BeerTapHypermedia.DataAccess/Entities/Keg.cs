@@ -5,8 +5,8 @@ namespace BeerTapHypermedia.DataAccess.Entities
 {
     public partial class Keg
     {
-        [Key]
         [Column(Order = 0)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         public int Id { get; set; }
 
         [Key]

@@ -5,7 +5,7 @@ namespace BeerTapHypermedia.DataAccess.Entities
 {
     public partial class Office
     {
-        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity), Key()]
         [Column(Order = 0)]
         public int Id { get; set; }
 

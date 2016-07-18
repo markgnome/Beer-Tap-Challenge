@@ -8,7 +8,7 @@ namespace BeerTapHypermedia.DataAccess
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class BeerTapDbContext : DatabaseBaseContext
+    public partial class BeerTapDbContext : DbContext
     {
         public BeerTapDbContext()
             : base("name=BeerTapDbContext")
@@ -20,13 +20,13 @@ namespace BeerTapHypermedia.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Office>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
+            //Database.SetInitializer(new DropCreateDatabaseAlways<BeerTapDbContext>());
 
-            modelBuilder.Entity<Office>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
+            modelBuilder.Entity<Office>().Property(e => e.Name).IsUnicode(false);
+
+            modelBuilder.Entity<Office>().Property(e => e.Description).IsUnicode(false);
+
+            modelBuilder.Entity<Office>().Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
     }
 }

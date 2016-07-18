@@ -25,7 +25,8 @@ namespace BeerTapHypermedia.IntegrationTests
         public OfficeRepositoryTest()
         {
             _container = new WindsorContainer();
-            _container.Register(Component.For<IOfficeRepository>().ImplementedBy<OfficeRepositoryMock>().LifestyleSingleton());
+            _container.Register(Component.For<IDatabaseContextFactory<BeerTapDbContext>>().ImplementedBy<DatabaseContextFactory>().LifestyleSingleton());
+            _container.Register(Component.For<IOfficeRepository>().ImplementedBy<OfficeRepository>().LifestyleSingleton());
             _sut = _container.Resolve<IOfficeRepository>();
         }
 

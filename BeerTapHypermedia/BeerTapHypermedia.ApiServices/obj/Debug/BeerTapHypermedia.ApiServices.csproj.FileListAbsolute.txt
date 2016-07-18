@@ -179,11 +179,8 @@ C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\obj\Debug\BeerTapHypermedia.ApiServices.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\obj\Debug\BeerTapHypermedia.ApiServices.pdb
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\BeerTapHypermedia.DataAccess.dll
-C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\IQ.DataPersistenceFramework.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\EntityFramework.dll
-C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\IQ.Framework.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\BeerTapHypermedia.DataAccess.pdb
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\EntityFramework.xml
-C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\IQ.Framework.xml
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\EntityFramework.SqlServer.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.ApiServices\bin\Debug\EntityFramework.SqlServer.xml
