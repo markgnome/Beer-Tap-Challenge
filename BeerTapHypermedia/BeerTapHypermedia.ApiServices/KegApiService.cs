@@ -12,7 +12,7 @@ using BeerTapHypermedia.Model;
 using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
 using AutoMapper;
-using BeerTapHypermedia.DataAccess.Dtos;
+using BeerTapHypermedia.DataAccess.Entities;
 
 namespace BeerTapHypermedia.ApiServices
 {
@@ -31,37 +31,37 @@ namespace BeerTapHypermedia.ApiServices
         }
 
 
-        public Task<Keg> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
+        public Task<KegModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
             var kegDto = _kegRepository.Get(Convert.ToInt32(id));
-            var keg = Mapper.Map<Keg>(kegDto);
+            var keg = Mapper.Map<KegModel>(kegDto);
             return Task.FromResult(keg);
         }
 
-        public Task<IEnumerable<Keg>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
+        public Task<IEnumerable<KegModel>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
-            var kegs = new List<Keg>();
+            var kegs = new List<KegModel>();
             var kegsDto = _kegRepository.GetAll();
-            return Task.FromResult(Mapper.Map<IEnumerable<Keg>>(kegsDto));
+            return Task.FromResult(Mapper.Map<IEnumerable<KegModel>>(kegsDto));
         }
 
-        public Task<ResourceCreationResult<Keg, int>> CreateAsync(Keg resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<KegModel, int>> CreateAsync(KegModel resource, IRequestContext context, CancellationToken cancellation)
         {
-            resource.Quantity = Keg.FullQuantity;
-            var resultId = _kegRepository.Save(Mapper.Map<KegDto>(resource));
+            resource.Quantity = KegModel.FullQuantity;
+            var resultId = _kegRepository.Save(Mapper.Map<Keg>(resource));
             var newKegDto = _kegRepository.Get(resultId);
-            var keg = Mapper.Map<Keg>(newKegDto);
-           return Task.FromResult(new ResourceCreationResult<Keg, int>(keg));
+            var keg = Mapper.Map<KegModel>(newKegDto);
+           return Task.FromResult(new ResourceCreationResult<KegModel, int>(keg));
         }
 
-        public Task<Keg> UpdateAsync(Keg resource, IRequestContext context, CancellationToken cancellation)
+        public Task<KegModel> UpdateAsync(KegModel resource, IRequestContext context, CancellationToken cancellation)
         {
-            var kegDto = Mapper.Map<KegDto>(resource);
+            var kegDto = Mapper.Map<Keg>(resource);
             _kegRepository.Update(kegDto);
             return Task.FromResult(resource);
         }
 
-        public Task DeleteAsync(ResourceOrIdentifier<Keg, int> input, IRequestContext context, CancellationToken cancellation)
+        public Task DeleteAsync(ResourceOrIdentifier<KegModel, int> input, IRequestContext context, CancellationToken cancellation)
         {
             if (input.HasResource)
             {

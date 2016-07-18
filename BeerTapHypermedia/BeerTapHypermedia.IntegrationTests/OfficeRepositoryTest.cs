@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using Castle.Windsor;
 using Xunit;
 using BeerTapHypermedia.DataAccess;
-using BeerTapHypermedia.DataAccess.Dtos;
 using BeerTapHypermedia.DataAccess.Installers;
 using BeerTapHypermedia.IntegrationTests.MockRepositories;
 using Castle.MicroKernel.Registration;
 using FluentAssertions;
 using IQ.Platform.Framework.Common;
 using Ploeh.AutoFixture;
+using BeerTapHypermedia.DataAccess.Entities;
 
 namespace BeerTapHypermedia.IntegrationTests
 {
@@ -33,7 +33,7 @@ namespace BeerTapHypermedia.IntegrationTests
         public void ShouldCreateNewOffice()
          {
             //arrange
-            var dto = new OfficeDto() {Name = "Head Quarters", Description = "Main Office", LocationId = 1};
+            var dto = new Office() {Name = "Head Quarters", Description = "Main Office", LocationId = 1};
 
             //act
             var returnOfficeId = _sut.Save(dto);
@@ -47,7 +47,7 @@ namespace BeerTapHypermedia.IntegrationTests
         public void ShouldUpdateOfficeDetails()
         {
             //arrange
-            var officeDto = new OfficeDto() {Id = 1, Name = "New Name", Description = "New Description", LocationId = 2};
+            var officeDto = new Office() {Id = 1, Name = "New Name", Description = "New Description", LocationId = 2};
             var getObjectOffice = _sut.Get(officeDto.Id);
 
             //act

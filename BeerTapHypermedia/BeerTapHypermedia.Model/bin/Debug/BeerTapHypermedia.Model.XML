@@ -114,42 +114,42 @@
             
             </summary>
         </member>
-        <member name="T:BeerTapHypermedia.Model.Keg">
+        <member name="T:BeerTapHypermedia.Model.KegModel">
             <summary>
             Keg Entity Class
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.Keg.FullQuantity">
+        <member name="F:BeerTapHypermedia.Model.KegModel.FullQuantity">
             <summary>
             Default Full Quantity of a Keg
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Keg.Id">
+        <member name="P:BeerTapHypermedia.Model.KegModel.Id">
             <summary>
             Identification
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Keg.KegId">
+        <member name="P:BeerTapHypermedia.Model.KegModel.KegId">
             <summary>
             Keg Identifier from backend
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Keg.KegState">
+        <member name="P:BeerTapHypermedia.Model.KegModel.KegState">
             <summary>
             Keg State 
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Keg.Quantity">
+        <member name="P:BeerTapHypermedia.Model.KegModel.Quantity">
             <summary>
             Default is 5 gl = 2000 ml
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Keg.Brand">
+        <member name="P:BeerTapHypermedia.Model.KegModel.Brand">
             <summary>
             Keg Brand of Beer
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Keg.OfficeId">
+        <member name="P:BeerTapHypermedia.Model.KegModel.OfficeId">
             <summary>
             Office 
             </summary>
@@ -194,37 +194,37 @@
             Get a pint of beer 
             </summary>
         </member>
-        <member name="T:BeerTapHypermedia.Model.Office">
+        <member name="T:BeerTapHypermedia.Model.OfficeModel">
             <summary>
             A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Office.Id">
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.Id">
             <summary>
             Unique Identifier for the Office
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Office.OfficeId">
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.OfficeId">
             <summary>
             Office Id 
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Office.Name">
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.Name">
             <summary>
             Name for the Office
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Office.Location">
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.Location">
             <summary>
             Location of Office
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Office.Description">
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.Description">
             <summary>
             Description for the Office
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.Office.Kegs">
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.Kegs">
             <summary>
             Kegs in the office
             </summary>

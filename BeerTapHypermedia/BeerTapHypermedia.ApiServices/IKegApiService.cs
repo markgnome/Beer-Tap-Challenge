@@ -4,11 +4,11 @@ using IQ.Platform.Framework.WebApi;
 namespace BeerTapHypermedia.ApiServices
 {
     public interface IKegApiService :
-        IGetAResourceAsync<Keg, int>,
-        IGetManyOfAResourceAsync<Keg, int>,
-        ICreateAResourceAsync<Keg, int>,
-        IUpdateAResourceAsync<Keg, int>,
-        IDeleteResourceAsync<Keg, int>
+        IGetAResourceAsync<KegModel, int>,
+        IGetManyOfAResourceAsync<KegModel, int>,
+        ICreateAResourceAsync<KegModel, int>,
+        IUpdateAResourceAsync<KegModel, int>,
+        IDeleteResourceAsync<KegModel, int>
     {
     }
 }

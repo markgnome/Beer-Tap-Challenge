@@ -1,11 +1,10 @@
 ﻿namespace BeerTapHypermedia.DataAccess
 {
-    public class DatabaseContextFactory : IDatabaseContextFactory<BeerTapContext>
+    public class DatabaseContextFactory : IDatabaseContextFactory<BeerTapDbContext>
     {
-        private const string ConnectionName = "BeerTapContext";
-        public BeerTapContext CreateContext()
+        public BeerTapDbContext CreateContext()
         {
-            var context = new BeerTapContext(ConnectionName);
+            var context = new BeerTapDbContext();
             return context;
         }
     }

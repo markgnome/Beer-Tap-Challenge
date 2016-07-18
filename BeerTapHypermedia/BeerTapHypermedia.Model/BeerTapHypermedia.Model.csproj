@@ -61,12 +61,12 @@
   <ItemGroup>
     <Compile Include="Enums\KegBrand.cs" />
     <Compile Include="IStatefulKeg.cs" />
-    <Compile Include="Keg.cs" />
+    <Compile Include="KegModel.cs" />
     <Compile Include="LinkRelations.cs" />
     <Compile Include="Enums\KegState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enums\OfficeLocation.cs" />
-    <Compile Include="Office.cs" />
+    <Compile Include="OfficeModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

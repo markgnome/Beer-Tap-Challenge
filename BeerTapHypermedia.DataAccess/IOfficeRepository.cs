@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
-using BeerTapHypermedia.DataAccess.Dtos;
+using BeerTapHypermedia.DataAccess.Entities;
 
 namespace BeerTapHypermedia.DataAccess
 {
     public interface IOfficeRepository
     {
-        OfficeKegDto Get(int officeId);
-        IEnumerable<OfficeKegDto> GetAll();
-        int Save(OfficeDto office);
-        void Update(OfficeDto office);
+        Office Get(int officeId);
+        IEnumerable<Office> GetAll();
+        int Save(Office office);
+        void Update(Office office);
         void Delete(int officeId);
 
     }

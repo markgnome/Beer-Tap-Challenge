@@ -9,7 +9,7 @@ namespace BeerTapHypermedia.Model
     /// <summary>
     /// A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.
     /// </summary>
-    public class Office : IStatelessResource, IIdentifiable<int>
+    public class OfficeModel : IStatelessResource, IIdentifiable<int>
     {
         /// <summary>
         /// Unique Identifier for the Office
@@ -39,6 +39,6 @@ namespace BeerTapHypermedia.Model
         /// <summary>
         /// Kegs in the office
         /// </summary>
-        public IList<Keg> Kegs { get; set; }
+        public IList<KegModel> Kegs { get; set; }
     }
 }

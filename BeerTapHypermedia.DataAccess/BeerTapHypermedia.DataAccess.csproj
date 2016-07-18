@@ -70,6 +70,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,23 +80,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BeerTapContext.cs" />
+    <Compile Include="BeerTapDbContext.cs" />
     <Compile Include="DatabaseContextFactory.cs">
       <DependentUpon>IDatabaseContextFactory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dtos\BrandDto.cs" />
-    <Compile Include="Dtos\KegDto.cs" />
-    <Compile Include="Dtos\LocationDto.cs" />
-    <Compile Include="Dtos\OfficeKegDto.cs" />
-    <Compile Include="Dtos\OfficeDto.cs" />
+    <Compile Include="Entities\OfficeKeg.cs" />
     <Compile Include="IDatabaseContextFactory.cs" />
     <Compile Include="IOfficeKegRepository.cs" />
     <Compile Include="IKegRepository.cs" />
     <Compile Include="IOfficeRepository.cs" />
     <Compile Include="Installers\DataPersistanceInstaller.cs" />
+    <Compile Include="Entities\Keg.cs" />
     <Compile Include="KegRepository.cs">
       <DependentUpon>IKegRepository.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Office.cs" />
     <Compile Include="OfficeKegRepository.cs">
       <DependentUpon>IOfficeKegRepository.cs</DependentUpon>
     </Compile>

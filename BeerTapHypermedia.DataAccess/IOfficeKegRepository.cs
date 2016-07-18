@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using BeerTapHypermedia.DataAccess.Dtos;
 
 namespace BeerTapHypermedia.DataAccess
 {

@@ -5,15 +5,15 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web.Http.OData.Formatter;
 using BeerTapHypermedia.DataAccess;
-using BeerTapHypermedia.DataAccess.Dtos;
+using BeerTapHypermedia.DataAccess.Entities;
 
 namespace BeerTapHypermedia.IntegrationTests.MockRepositories
 {
     public class OfficeRepositoryMock : IOfficeRepository
     {
-        private List<OfficeDto> _offices;
-        private List<KegDto> _kegs;
-        private List<OfficeKegDto> _officeKegs;
+        private List<Office> _offices;
+        private List<Keg> _kegs;
+        private List<OfficeKeg> _officeKegs;
 
         public OfficeRepositoryMock()
         {
@@ -22,10 +22,10 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
             _officeKegs = OfficeKegs().ToList();
         }
 
-        public OfficeKegDto Get(int officeId)
+        public Office Get(int officeId)
         {
             var office = _offices.First(o => o.Id == officeId);
-            return new OfficeKegDto()
+            return new OfficeKeg()
             {
                 Id = officeId,
                 Name = office.Name,
@@ -35,12 +35,12 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
             };
         }
 
-        public IEnumerable<OfficeKegDto> GetAll()
+        public IEnumerable<OfficeKeg> GetAll()
         {
             return _officeKegs;
         }
 
-        public int Save(OfficeDto office)
+        public int Save(Office office)
         {
             var id = _offices.Count + 1;
             office.Id = id;
@@ -48,7 +48,7 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
             return id;
         }
 
-        public void Update(OfficeDto office)
+        public void Update(Office office)
         {
             var officeUpdate = _offices.First(o => o.Id == office.Id);
             if (officeUpdate != null)
@@ -66,11 +66,11 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
         }
 
 
-        private IEnumerable<OfficeDto> Offices()
+        private IEnumerable<Office> Offices()
         {
-            _offices = new List<OfficeDto>
+            _offices = new List<Office>
             {
-                new OfficeDto()
+                new Office()
                 {
                     Id = 1,
                     Name = "iQ Manila",
@@ -78,38 +78,48 @@ namespace BeerTapHypermedia.IntegrationTests.MockRepositories
                     LocationId = 1
                 }
             };
-            IEnumerable<OfficeDto> results = _offices;
+            IEnumerable<Office> results = _offices;
             return results;
         }
 
 
-        private IEnumerable<KegDto> Kegs()
+        private IEnumerable<Keg> Kegs()
         {
-            _kegs = new List<KegDto>()
+            _kegs = new List<Keg>()
             {
-                new KegDto() {KegId = 1, Quantity = 100, BrandId = 1, OfficeId = 1}
+                new Keg() {Id = 1, Quantity = 100, BrandId = 1, OfficeId = 1}
             };
-            IEnumerable<KegDto> results = _kegs;
+            IEnumerable<Keg> results = _kegs;
             return results;
         }
 
-        private IEnumerable<OfficeKegDto> OfficeKegs()
+        private IEnumerable<OfficeKeg> OfficeKegs()
         {
-            var officeKegs = new List<OfficeKegDto>();
-            foreach (var officeDto in Offices())
+            var officeKegs = new List<OfficeKeg>();
+            foreach (var Office in Offices())
             {
-                officeKegs.Add(new OfficeKegDto()
+                officeKegs.Add(new OfficeKeg()
                 {
-                    Id = officeDto.Id,
-                    Name = officeDto.Name,
-                    Description = officeDto.Description,
-                    LocationId = officeDto.LocationId,
-                    Kegs = new List<KegDto>() { Kegs().First(k => k.OfficeId == officeDto.Id)}
+                    Id = Office.Id,
+                    Name = Office.Name,
+                    Description = Office.Description,
+                    LocationId = Office.LocationId,
+                    Kegs = new List<Keg>() { Kegs().First(k => k.OfficeId == Office.Id)}
 
                 });
             }
-            IEnumerable<OfficeKegDto> results = officeKegs;
+            IEnumerable<OfficeKeg> results = officeKegs;
             return results;
+        }
+
+        Office IOfficeRepository.Get(int officeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Office> IOfficeRepository.GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

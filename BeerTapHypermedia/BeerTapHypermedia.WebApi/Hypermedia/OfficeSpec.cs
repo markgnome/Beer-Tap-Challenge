@@ -5,25 +5,25 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace BeerTapHypermedia.WebApi.Hypermedia
 {
-    public class OfficeSpec : SingleStateResourceSpec<Office, int>
+    public class OfficeSpec : SingleStateResourceSpec<OfficeModel, int>
     {
 
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Office({id})");
 
         public override string EntrypointRelation => LinkRelations.Office;
 
-        public override IResourceStateSpec<Office, NullState, int> StateSpec
+        public override IResourceStateSpec<OfficeModel, NullState, int> StateSpec
         {
             get
             {
                 return
-                  new SingleStateSpec<Office, int>
+                  new SingleStateSpec<OfficeModel, int>
                   {
                       Links =
                       {
                            CreateLinkTemplate(LinkRelations.Office , OfficeSpec.Uri , r => r.OfficeId),
                       },
-                      Operations = new StateSpecOperationsSource<Office, int>
+                      Operations = new StateSpecOperationsSource<OfficeModel, int>
                       {
                           Get = ServiceOperations.Get,
                           InitialPost = ServiceOperations.Create,

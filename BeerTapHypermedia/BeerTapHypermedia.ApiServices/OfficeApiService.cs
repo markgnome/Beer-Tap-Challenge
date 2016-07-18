@@ -12,7 +12,7 @@ using BeerTapHypermedia.Model;
 using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
 using AutoMapper;
-using BeerTapHypermedia.DataAccess.Dtos;
+using BeerTapHypermedia.DataAccess.Entities;
 
 namespace BeerTapHypermedia.ApiServices
 {
@@ -29,36 +29,36 @@ namespace BeerTapHypermedia.ApiServices
         }
 
 
-        public Task<Office> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
+        public Task<OfficeModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
             var officeDto = _officeRepository.Get(Convert.ToInt32(id));
-            var officeModel = Mapper.Map<Office>(officeDto);
+            var officeModel = Mapper.Map<OfficeModel>(officeDto);
             return Task.FromResult(officeModel);
         }
 
-        public Task<IEnumerable<Office>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
+        public Task<IEnumerable<OfficeModel>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
-            var offices = new List<Office>();
+            var offices = new List<OfficeModel>();
             var allOffices = _officeRepository.GetAll();
-            return Task.FromResult(Mapper.Map<IEnumerable<Office>>(allOffices));
+            return Task.FromResult(Mapper.Map<IEnumerable<OfficeModel>>(allOffices));
         }
 
-        public Task<ResourceCreationResult<Office, int>> CreateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<OfficeModel, int>> CreateAsync(OfficeModel resource, IRequestContext context, CancellationToken cancellation)
         {
-            var resultId = _officeRepository.Save(Mapper.Map<OfficeDto>(resource));
+            var resultId = _officeRepository.Save(Mapper.Map<Office>(resource));
             var officeKegDto = _officeRepository.Get(resultId);
-            var officeModel = Mapper.Map<Office>(officeKegDto);
-           return Task.FromResult(new ResourceCreationResult<Office, int>(officeModel));
+            var officeModel = Mapper.Map<OfficeModel>(officeKegDto);
+           return Task.FromResult(new ResourceCreationResult<OfficeModel, int>(officeModel));
         }
 
-        public Task<Office> UpdateAsync(Office resource, IRequestContext context, CancellationToken cancellation)
+        public Task<OfficeModel> UpdateAsync(OfficeModel resource, IRequestContext context, CancellationToken cancellation)
         {
-            var officeDto = Mapper.Map<OfficeDto>(resource);
+            var officeDto = Mapper.Map<Office>(resource);
             _officeRepository.Update(officeDto);
             return Task.FromResult(resource);
         }
 
-        public Task DeleteAsync(ResourceOrIdentifier<Office, int> input, IRequestContext context, CancellationToken cancellation)
+        public Task DeleteAsync(ResourceOrIdentifier<OfficeModel, int> input, IRequestContext context, CancellationToken cancellation)
         {
             if (input.HasResource)
             {

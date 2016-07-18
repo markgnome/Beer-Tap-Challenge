@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Castle.Windsor;
 using Xunit;
 using BeerTapHypermedia.DataAccess;
-using BeerTapHypermedia.DataAccess.Dtos;
 using BeerTapHypermedia.DataAccess.Installers;
 using BeerTapHypermedia.IntegrationTests.MockRepositories;
 using Castle.MicroKernel.Registration;
@@ -42,7 +41,7 @@ namespace BeerTapHypermedia.IntegrationTests
             var keg = _kegRepository.Get(kegId);
             
             //assert
-            keg.KegId.ShouldBeEquivalentTo(kegId);
+            keg.Id.ShouldBeEquivalentTo(kegId);
             keg.BrandId.ShouldBeEquivalentTo(brandId);
             
         }
@@ -58,7 +57,7 @@ namespace BeerTapHypermedia.IntegrationTests
             var keg = _kegRepository.Get(kegId);
 
             //assert
-            keg.KegId.ShouldBeEquivalentTo(kegId);
+            keg.Id.ShouldBeEquivalentTo(kegId);
             keg.Quantity.ShouldBeEquivalentTo(quantity);
 
         }
@@ -75,7 +74,7 @@ namespace BeerTapHypermedia.IntegrationTests
             var keg = _kegRepository.Get(kegId);
 
             //assert
-            keg.KegId.ShouldBeEquivalentTo(kegId);
+            keg.Id.ShouldBeEquivalentTo(kegId);
             keg.Quantity.ShouldBeEquivalentTo(1500);
 
         }

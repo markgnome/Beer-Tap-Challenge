@@ -4,62 +4,56 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
-using BeerTapHypermedia.DataAccess.Dtos;
+using System.Threading.Tasks;
+using BeerTapHypermedia.DataAccess.Entities;
 using Castle.Core;
 
 namespace BeerTapHypermedia.DataAccess
 {
     public class KegRepository : IKegRepository
     {
-        private readonly IDatabaseContextFactory<BeerTapContext> _contextFactory;
+        private readonly IDatabaseContextFactory<BeerTapDbContext> _contextFactory;
 
-        public KegRepository(IDatabaseContextFactory<BeerTapContext> contextFactory)
+        public KegRepository(IDatabaseContextFactory<BeerTapDbContext> contextFactory)
         {
             if (contextFactory == null) throw new ArgumentNullException(nameof(contextFactory));
             _contextFactory = contextFactory;
         }
 
-        public KegDto Get(int kegId)
+        public Keg Get(int kegId)
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var kegIdParam = new SqlParameter { ParameterName = "@KegId", SqlDbType = SqlDbType.Int, Value = kegId};
-                return context.Database.SqlQuery<KegDto>("[dbo].[Keg_Select] @KegId", kegIdParam).FirstAsync().Result;
+                return context.Kegs.First(k => k.Id == kegId);
             }
         }
 
-        public IEnumerable<KegDto> GetAll()
+        public IEnumerable<Keg> GetAll()
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var kegIdParam = new SqlParameter {ParameterName = "@KegId", SqlDbType = SqlDbType.Int, Value = 0};
-                return context.Database.SqlQuery<KegDto>("[dbo].[Keg_Select] @KegId", kegIdParam).ToListAsync().Result;
+                return context.Kegs.ToList();
             }
         }
 
-        public int Save(KegDto keg)
+        public int Save(Keg keg)
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var kegQuantity = new SqlParameter { ParameterName = "@Quantity", SqlDbType = SqlDbType.Decimal,  Value = keg.Quantity };
-                var kegBrand = new SqlParameter { ParameterName = "@BrandId", SqlDbType = SqlDbType.Int, Value = keg.BrandId };
-                var kegOffice = new SqlParameter { ParameterName = "@OfficeId", SqlDbType = SqlDbType.Int, Value = keg.OfficeId };
-                var taskResult =
-                    context.Database.SqlQuery<decimal>("[dbo].[Keg_Create] @Quantity, @BrandId, @OfficeId", kegQuantity, kegBrand, kegOffice)
-                        .FirstAsync()
-                        .Result;
-                return Convert.ToInt32(taskResult);
+                var id = context.Kegs.Add(keg).Id;
+                context.SaveChanges();
+                return id;
             }
         }
 
-        public void Update(KegDto keg)
+        public void Update(Keg keg)
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var kegQuantity = new SqlParameter { ParameterName = "@Quantity", SqlDbType = SqlDbType.Decimal, Value = keg.Quantity };
-                var kegBrand = new SqlParameter { ParameterName = "@BrandId", SqlDbType = SqlDbType.Int, Value = keg.BrandId };
-                var kegId = new SqlParameter { ParameterName = "@KegId", SqlDbType = SqlDbType.Int, Value = keg.KegId };
-                context.Database.ExecuteSqlCommand("[dbo].[Keg_Update] @Quantity, @BrandId, @KegId", kegQuantity, kegBrand, kegId);
+                var current = context.Kegs.First(k => k.Id == keg.Id);
+                current.BrandId = keg.BrandId;
+                current.Quantity = keg.Quantity;
+                context.SaveChanges();
             }
         }
 
@@ -67,8 +61,9 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var kegIdParam = new SqlParameter { ParameterName = "@KegId", SqlDbType = SqlDbType.Int, Value = kegId };
-                context.Database.ExecuteSqlCommand("DELETE FROM Kegs WHERE Id = @Id", kegIdParam);
+                var remove = context.Kegs.First(k => k.Id == kegId);
+                context.Kegs.Remove(remove);
+                context.SaveChanges();
             }
         }
     }
