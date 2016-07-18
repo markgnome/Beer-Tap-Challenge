@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using IQ.Platform.Framework.WebApi.Services.Security;
@@ -13,6 +14,7 @@ using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
 using AutoMapper;
 using BeerTapHypermedia.DataAccess.Entities;
+using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
 {
@@ -34,18 +36,19 @@ namespace BeerTapHypermedia.ApiServices
         public Task<OfficeModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
             var officeDto = _officeRepository.Get(Convert.ToInt32(id));
-            var kegsDto = _kegRepository.GetAll(officeDto.Id);
-            var kegsModel = Mapper.Map<List<KegModel>>(kegsDto);
             var officeModel = Mapper.Map<OfficeModel>(officeDto);
-            officeModel.Kegs = kegsModel;
             return Task.FromResult(officeModel);
         }
 
         public Task<IEnumerable<OfficeModel>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
-            var offices = new List<OfficeModel>();
             var allOffices = _officeRepository.GetAll();
-            return Task.FromResult(Mapper.Map<IEnumerable<OfficeModel>>(allOffices));
+            var officesModel = Mapper.Map<IEnumerable<OfficeModel>>(allOffices);
+            foreach (var officeModel in officesModel)
+            {
+                officeModel.Kegs = Mapper.Map<List<KegModel>>(_kegRepository.GetAll(officeModel.Id));
+            }
+            return Task.FromResult(officesModel);
         }
 
         public Task<ResourceCreationResult<OfficeModel, int>> CreateAsync(OfficeModel resource, IRequestContext context, CancellationToken cancellation)

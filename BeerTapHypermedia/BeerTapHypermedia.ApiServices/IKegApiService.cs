@@ -1,4 +1,7 @@
-﻿using BeerTapHypermedia.Model;
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using BeerTapHypermedia.Model;
 using IQ.Platform.Framework.WebApi;
 
 namespace BeerTapHypermedia.ApiServices
@@ -10,5 +13,6 @@ namespace BeerTapHypermedia.ApiServices
         IUpdateAResourceAsync<KegModel, int>,
         IDeleteResourceAsync<KegModel, int>
     {
+        //Task<IEnumerable<KegModel>> GetManyAsync(int resourceId, IRequestContext context, CancellationToken cancellation);
     }
 }

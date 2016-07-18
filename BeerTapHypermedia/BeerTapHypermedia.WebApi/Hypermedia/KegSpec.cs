@@ -13,10 +13,17 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
     public class KegSpec : ResourceSpec<KegModel, KegState, int>// , IStatefulKeg
     {
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Keg({id})");
+        public static ResourceUriTemplate UriOfficeAndKeg = ResourceUriTemplate.Create("Keg/Office({officeId})");
         public static ResourceUriTemplate KegUriReplaceKeg = ResourceUriTemplate.Create("Keg({id})/Replace");
         public static ResourceUriTemplate KegUriChangeKeg = ResourceUriTemplate.Create("Keg({id})/Change");
         public static ResourceUriTemplate KegUriPintKeg = ResourceUriTemplate.Create("Keg({id})/Pint");
         public override string EntrypointRelation => LinkRelations.Keg;
+
+        protected override IEnumerable<ResourceLinkTemplate<KegModel>> Links()
+        {
+            yield return CreateLinkTemplate(CommonLinkRelations.Self, UriOfficeAndKeg, c => c.OfficeId);
+        }
+
         protected override IEnumerable<IResourceStateSpec<KegModel, KegState, int>> GetStateSpecs()
         { 
 

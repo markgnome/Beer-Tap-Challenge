@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using IQ.Platform.Framework.WebApi.Services.Security;
@@ -13,6 +14,7 @@ using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
 using AutoMapper;
 using BeerTapHypermedia.DataAccess.Entities;
+using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
 {
@@ -33,6 +35,7 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<KegModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
+
             var kegDto = _kegRepository.Get(Convert.ToInt32(id));
             var keg = Mapper.Map<KegModel>(kegDto);
             return Task.FromResult(keg);
@@ -40,8 +43,16 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<IEnumerable<KegModel>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
-            var kegs = new List<KegModel>();
-            var kegsDto = _kegRepository.GetAll();
+            var officeId = context.UriParameters.GetByName<int>("officeId").EnsureValue(() => context.CreateHttpResponseException<OfficeModel>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
+            var results = officeId != 0
+                ? GetManyAsync(officeId, context, cancellation).Result
+                : Mapper.Map<IEnumerable<KegModel>>(_kegRepository.GetAll());
+            return Task.FromResult(results);
+        }
+
+        public Task<IEnumerable<KegModel>> GetManyAsync(int resourceId, IRequestContext context, CancellationToken cancellation)
+        {
+            var kegsDto = _kegRepository.GetAll(resourceId);
             return Task.FromResult(Mapper.Map<IEnumerable<KegModel>>(kegsDto));
         }
 
