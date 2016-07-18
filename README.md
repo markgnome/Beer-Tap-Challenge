@@ -1,5 +1,4 @@
 # Beer-Tap-Challenge
-Beer Tap Challenge
 
 # What's on Tap?
 iQmetrix is a pretty cool place to work... we have a beer tap?!?!  No bullshit!  In fact, each office has at least one tap, most have more!  A great way to drive home the benefits of hypermedia and to build a RESTful API that means something to every iQer is to create a hypermedia API to track “what’s on tap” in the various iQ offices and what happens to a keg as we pour off pint after delicious pint.
