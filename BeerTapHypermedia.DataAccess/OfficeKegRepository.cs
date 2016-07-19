@@ -26,11 +26,10 @@ namespace BeerTapHypermedia.DataAccess
             _kegRepository.Update(new Keg() { Id = kegId, BrandId = brandId, Quantity = 2000 });
         }
 
-        public void Replace(int kegId)
+        public Keg Replace(int officeId, int brandId)
         {
-            var keg = _kegRepository.Get(kegId);
-            keg.Quantity = 2000;
-            _kegRepository.Update(keg);
+            var kegId = _kegRepository.Save(new Keg() {BrandId = brandId, OfficeId = officeId, Quantity = 2000});
+            return _kegRepository.Get(kegId);
         }
 
         public void Pint(int kegId, decimal glassMl)

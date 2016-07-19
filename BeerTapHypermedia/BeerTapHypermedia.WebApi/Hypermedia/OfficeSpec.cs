@@ -14,13 +14,6 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
 
         public override string EntrypointRelation => LinkRelations.Office;
 
-        //protected override IEnumerable<ResourceLinkTemplate<OfficeModel>> Links()
-        //{
-        //    yield return CreateLinkTemplate<LinksParametersSource>(CommonLinkRelations.Self, Uri, x => x.Parameters.OfficeId,
-        //            x => x.Parameters.OfficeId, x => x.Resource.Id);
-        //}
-
-
         public override IResourceStateSpec<OfficeModel, NullState, int> StateSpec
         {
             get

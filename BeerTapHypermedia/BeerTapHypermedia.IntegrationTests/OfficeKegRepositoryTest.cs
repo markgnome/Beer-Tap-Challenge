@@ -50,15 +50,15 @@ namespace BeerTapHypermedia.IntegrationTests
         public void ReplaceKeg()
         {
             //arrange
-            var kegId = 1;
+            var officeId = 1;
+            var brandId = 1;
             var quantity = 2000;
             //act
-            _sut.Replace(kegId);
-            var keg = _kegRepository.Get(kegId);
+           var kegResult =  _sut.Replace(officeId, brandId);
 
             //assert
-            keg.Id.ShouldBeEquivalentTo(kegId);
-            keg.Quantity.ShouldBeEquivalentTo(quantity);
+            kegResult.OfficeId.ShouldBeEquivalentTo(officeId);
+            kegResult.Quantity.ShouldBeEquivalentTo(quantity);
 
         }
 

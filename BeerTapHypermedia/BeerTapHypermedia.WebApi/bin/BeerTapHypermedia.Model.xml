@@ -4,6 +4,91 @@
         <name>BeerTapHypermedia.Model</name>
     </assembly>
     <members>
+        <member name="T:BeerTapHypermedia.Model.DataContracts.Beer">
+            <summary>
+            Keg Entity Class
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Beer.KegId">
+            <summary>
+            Keg Id
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Beer.OfficeId">
+            <summary>
+            Office Id
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Beer.Brand">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Beer.Volume">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.DataContracts.Pint">
+            <summary>
+            Keg Entity Class
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.KegId">
+            <summary>
+            Keg Id
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.OfficeId">
+            <summary>
+            Office Id
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Volume">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.DataContracts.ChangeKeg">
+            <summary>
+            Keg Entity Class
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.KegId">
+            <summary>
+            Office ID 
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.Brand">
+            <summary>
+            Keg Brand of Beer
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.DataContracts.ReplaceKeg">
+            <summary>
+            Keg Entity Class
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.Id">
+            <summary>
+            Office ID 
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.Brand">
+            <summary>
+            Keg Brand of Beer
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.KegId">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:BeerTapHypermedia.Model.Enums.KegBrand">
             <summary>
             Enumeration for the Keg Brand

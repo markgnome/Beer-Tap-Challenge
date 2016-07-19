@@ -188,11 +188,13 @@
     <Compile Include="Configurations\AutoMapperConfiguration.cs" />
     <Compile Include="IDomainServiceResolver.cs" />
     <Compile Include="IKegApiService.cs" />
+    <Compile Include="IOfficeKegApiService.cs" />
     <Compile Include="IOfficeApiService.cs" />
     <Compile Include="KegApiService.cs">
       <DependentUpon>IKegApiService.cs</DependentUpon>
     </Compile>
     <Compile Include="LinksParametersSource.cs" />
+    <Compile Include="OfficeKegApiService.cs" />
     <Compile Include="OfficeApiService.cs">
       <DependentUpon>IOfficeApiService.cs</DependentUpon>
     </Compile>

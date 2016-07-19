@@ -14,8 +14,8 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
     {
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Keg({id})");
         public static ResourceUriTemplate UriOfficeAndKeg = ResourceUriTemplate.Create("Keg/Office({officeId})");
-        public static ResourceUriTemplate KegUriReplaceKeg = ResourceUriTemplate.Create("Keg({id})/Replace");
-        public static ResourceUriTemplate KegUriChangeKeg = ResourceUriTemplate.Create("Keg({id})/Change");
+        //public static ResourceUriTemplate KegUriReplaceKeg = ResourceUriTemplate.Create("Keg({id})/Replace");
+        //public static ResourceUriTemplate KegUriChangeKeg = ResourceUriTemplate.Create("Keg({id})/Change");
         public static ResourceUriTemplate KegUriPintKeg = ResourceUriTemplate.Create("Keg({id})/Pint");
         public override string EntrypointRelation => LinkRelations.Keg;
 
@@ -31,66 +31,54 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Keg, KegUriReplaceKeg.Many, c => c.KegId)
+                    CreateLinkTemplate(LinkRelations.Keg, ReplaceKegSpec.Uri.Many, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
-                    Get = ServiceOperations.Get,
-                    InitialPost = ServiceOperations.Create,
-                    Post = ServiceOperations.Update,
-                    Put = ServiceOperations.Update,
-                    Delete = ServiceOperations.Delete,
+                    Get = ServiceOperations.Get
+                 
                 }
             };
             yield return new ResourceStateSpec<KegModel, KegState, int> (KegState.Nearly)
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Keg, KegUriReplaceKeg.Many, c => c.KegId)
+                    CreateLinkTemplate(LinkRelations.Keg, ReplaceKegSpec.Uri.Many, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
-                    Get = ServiceOperations.Get,
-                    InitialPost = ServiceOperations.Create,
-                    Post = ServiceOperations.Update,
-                    Put = ServiceOperations.Update,
-                    Delete = ServiceOperations.Delete,
+                    Get = ServiceOperations.Get
+              
+
                 }
             };
             yield return new ResourceStateSpec<KegModel, KegState, int>(KegState.Full)
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg, KegUriChangeKeg.Many, c => c.KegId),
+                    CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.KegId),
                     CreateLinkTemplate(LinkRelations.Keg, KegUriPintKeg.Many, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
                     Get = ServiceOperations.Get,
-                    InitialPost = ServiceOperations.Create,
-                    Post = ServiceOperations.Update,
-                    Put = ServiceOperations.Update,
-                    Delete = ServiceOperations.Delete,
+                    Put = ServiceOperations.Update
                 }
             };
             yield return new ResourceStateSpec<KegModel, KegState, int>(KegState.Reduced)
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg, KegUriChangeKeg.Many, c => c.KegId),
+                    CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.KegId),
                      CreateLinkTemplate(LinkRelations.Keg, KegUriPintKeg.Many, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
                     Get = ServiceOperations.Get,
-                    InitialPost = ServiceOperations.Create,
-                    Post = ServiceOperations.Update,
-                    Put = ServiceOperations.Update,
-                    Delete = ServiceOperations.Delete,
+                    Put = ServiceOperations.Update
                 }
             };
         }
 
-        //public KegState KegState { get; set;  }
     }
 }

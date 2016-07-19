@@ -13,6 +13,5 @@ namespace BeerTapHypermedia.ApiServices
         IUpdateAResourceAsync<KegModel, int>,
         IDeleteResourceAsync<KegModel, int>
     {
-        //Task<IEnumerable<KegModel>> GetManyAsync(int resourceId, IRequestContext context, CancellationToken cancellation);
     }
 }

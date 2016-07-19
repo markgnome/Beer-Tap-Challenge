@@ -298,6 +298,8 @@
     <Compile Include="Handlers\PutYourApiSafeNameUserContextProvidingHandler.cs" />
     <Compile Include="Hypermedia\KegSpec.cs" />
     <Compile Include="Hypermedia\KegStateProvider.cs" />
+    <Compile Include="Hypermedia\ChangeKegSpec.cs" />
+    <Compile Include="Hypermedia\ReplaceKegSpec.cs" />
     <Compile Include="Hypermedia\OfficeSpec.cs" />
     <Compile Include="Infrastructure\BootStrapper.cs" />
     <Compile Include="Infrastructure\DefaultApiContainer.cs" />

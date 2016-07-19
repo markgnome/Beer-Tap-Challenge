@@ -23,19 +23,15 @@ namespace BeerTapHypermedia.ApiServices
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
         private readonly IKegRepository _kegRepository;
-        private readonly IOfficeKegRepository _officeKegRepository;
-        public KegApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IOfficeKegRepository officeKegRepository, IKegRepository kegRepository)
+        public KegApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IKegRepository kegRepository)
         {
             if (userProvider == null) throw new ArgumentNullException("userProvider");
             _userProvider = userProvider;
-            _officeKegRepository = officeKegRepository;
             _kegRepository = kegRepository;
         }
 
-
         public Task<KegModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
-
             var kegDto = _kegRepository.Get(Convert.ToInt32(id));
             var keg = Mapper.Map<KegModel>(kegDto);
             return Task.FromResult(keg);
@@ -59,10 +55,11 @@ namespace BeerTapHypermedia.ApiServices
         public Task<ResourceCreationResult<KegModel, int>> CreateAsync(KegModel resource, IRequestContext context, CancellationToken cancellation)
         {
             resource.Quantity = KegModel.FullQuantity;
-            var resultId = _kegRepository.Save(Mapper.Map<Keg>(resource));
+            var entity = Mapper.Map<Keg>(resource);
+            var resultId = _kegRepository.Save(entity);
             var newKegDto = _kegRepository.Get(resultId);
             var keg = Mapper.Map<KegModel>(newKegDto);
-           return Task.FromResult(new ResourceCreationResult<KegModel, int>(keg));
+            return Task.FromResult(new ResourceCreationResult<KegModel, int>(keg));
         }
 
         public Task<KegModel> UpdateAsync(KegModel resource, IRequestContext context, CancellationToken cancellation)

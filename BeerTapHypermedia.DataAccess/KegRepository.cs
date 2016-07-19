@@ -40,9 +40,9 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var id = context.Kegs.Add(keg).Id;
+                var kegResult = context.Kegs.Add(keg);
                 context.SaveChanges();
-                return id;
+                return kegResult.Id;
             }
         }
 

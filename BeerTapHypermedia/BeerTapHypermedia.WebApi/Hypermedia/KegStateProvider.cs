@@ -29,14 +29,36 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
             {
                 // from, to
                 {
+                   
                     KegState.Empty, new[]
                     {
-                        KegState.Full,
-                        KegState.Nearly,
-                        KegState.Reduced,
+                        KegState.Full
+                    }
+
+                },
+                {
+                    KegState.Full, new []
+                    {
+                        KegState.Reduced
                     }
                 },
+                {
+                     KegState.Reduced, new []
+                    {
+                        KegState.Nearly
+                    }
+                },
+                {
+                     KegState.Nearly, new []
+                    {
+                        KegState.Empty
+                    }
+                }
+
+
             };
+
+
         }
 
         public override IEnumerable<KegState> All => EnumEx.GetValuesFor<KegState>();
