@@ -194,6 +194,9 @@
       <DependentUpon>IKegApiService.cs</DependentUpon>
     </Compile>
     <Compile Include="LinksParametersSource.cs" />
+    <Compile Include="ChangeKegApiService.cs" />
+    <Compile Include="ReplaceKegApiService.cs" />
+    <Compile Include="PintBeerApiService.cs" />
     <Compile Include="OfficeKegApiService.cs" />
     <Compile Include="OfficeApiService.cs">
       <DependentUpon>IOfficeApiService.cs</DependentUpon>

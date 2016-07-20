@@ -1,26 +1,23 @@
 ﻿using BeerTapHypermedia.Model.Enums;
+using IQ.Platform.Framework.Common;
+using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace BeerTapHypermedia.Model.DataContracts
 {
     /// <summary>
     /// Keg Entity Class
     /// </summary>
-    public class Pint
+    public class Pint : IStatelessResource, IIdentifiable<int>
     {
-        /// <summary>
-        /// Keg Id
-        /// </summary>
-        public int KegId { get; set; }
-
-        /// <summary>
-        /// Office Id
-        /// </summary>
-        public int OfficeId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int Volume { get; set; }
+        public decimal Volume { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Id { get; set; }
     }
 }

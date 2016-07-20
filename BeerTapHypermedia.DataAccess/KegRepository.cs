@@ -24,7 +24,7 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                return context.Kegs.First(k => k.Id == kegId);
+                return context.Kegs.Find(kegId);
             }
         }
 
@@ -50,10 +50,13 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var current = context.Kegs.First(k => k.Id == keg.Id);
-                current.BrandId = keg.BrandId;
-                current.Quantity = keg.Quantity;
-                context.SaveChanges();
+                var current = context.Kegs.Find(keg.Id);
+                if (current != null)
+                {
+                    current.BrandId = keg.BrandId;
+                    current.Quantity = keg.Quantity;
+                    context.SaveChanges();
+                }
             }
         }
 
@@ -61,9 +64,12 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var remove = context.Kegs.First(k => k.Id == kegId);
-                context.Kegs.Remove(remove);
-                context.SaveChanges();
+                var remove = context.Kegs.Find(kegId);
+                if (remove != null)
+                {
+                    context.Kegs.Remove(remove);
+                    context.SaveChanges();
+                }
             }
         }
     }

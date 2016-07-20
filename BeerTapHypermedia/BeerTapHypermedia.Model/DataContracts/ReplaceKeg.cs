@@ -12,7 +12,7 @@ namespace BeerTapHypermedia.Model.DataContracts
         /// <summary>
         /// Office ID 
         /// </summary>
-        public int Id { get; set; }
+        public int Id => KegId;
 
         /// <summary>
         /// Keg Brand of Beer

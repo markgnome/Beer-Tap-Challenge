@@ -24,7 +24,7 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                return context.Offices.First(o => o.Id == officeId);
+                return context.Offices.Find(officeId);
             }
         }
 

@@ -14,9 +14,6 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
     {
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Keg({id})");
         public static ResourceUriTemplate UriOfficeAndKeg = ResourceUriTemplate.Create("Keg/Office({officeId})");
-        //public static ResourceUriTemplate KegUriReplaceKeg = ResourceUriTemplate.Create("Keg({id})/Replace");
-        //public static ResourceUriTemplate KegUriChangeKeg = ResourceUriTemplate.Create("Keg({id})/Change");
-        public static ResourceUriTemplate KegUriPintKeg = ResourceUriTemplate.Create("Keg({id})/Pint");
         public override string EntrypointRelation => LinkRelations.Keg;
 
         protected override IEnumerable<ResourceLinkTemplate<KegModel>> Links()
@@ -35,8 +32,9 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
-                    Get = ServiceOperations.Get
-                 
+                    Get = ServiceOperations.Get,
+                    InitialPost = ServiceOperations.Create
+
                 }
             };
             yield return new ResourceStateSpec<KegModel, KegState, int> (KegState.Nearly)
@@ -47,8 +45,8 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
-                    Get = ServiceOperations.Get
-              
+                    Get = ServiceOperations.Get,
+                    InitialPost = ServiceOperations.Create
 
                 }
             };
@@ -57,12 +55,13 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.KegId),
-                    CreateLinkTemplate(LinkRelations.Keg, KegUriPintKeg.Many, c => c.KegId)
+                    CreateLinkTemplate(LinkRelations.Keg, PintBeerSpec.Uri.Many, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
                     Get = ServiceOperations.Get,
-                    Put = ServiceOperations.Update
+                    Put = ServiceOperations.Update,
+                    InitialPost = ServiceOperations.Create
                 }
             };
             yield return new ResourceStateSpec<KegModel, KegState, int>(KegState.Reduced)
@@ -70,12 +69,13 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.KegId),
-                     CreateLinkTemplate(LinkRelations.Keg, KegUriPintKeg.Many, c => c.KegId)
+                     CreateLinkTemplate(LinkRelations.Keg, PintBeerSpec.Uri.Many, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
                     Get = ServiceOperations.Get,
-                    Put = ServiceOperations.Update
+                    Put = ServiceOperations.Update,
+                    InitialPost = ServiceOperations.Create
                 }
             };
         }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -34,9 +36,12 @@ namespace BeerTapHypermedia.DataAccess
 
         public void Pint(int kegId, decimal glassMl)
         {
-            var keg = _kegRepository.Get(kegId);
-            keg.Quantity -= glassMl;
-            _kegRepository.Update(keg);
+            using (var context = _contextFactory.CreateContext())
+            {
+                var keg = context.Kegs.First(k => k.Id == kegId);
+                keg.Quantity -= glassMl;
+                context.SaveChanges();
+            }
         }
     }
 

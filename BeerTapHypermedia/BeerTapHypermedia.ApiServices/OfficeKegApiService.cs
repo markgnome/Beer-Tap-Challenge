@@ -46,10 +46,10 @@ namespace BeerTapHypermedia.ApiServices
             Beer beer;
             try
             {
-                var kegResult = _kegRepository.Get(resource.KegId);
+                var kegResult = _kegRepository.Get(resource.Id);
                 if (kegResult.Quantity <= resource.Volume)
 
-                    _officeKegRepository.Pint(resource.KegId, resource.Volume);
+                    _officeKegRepository.Pint(resource.Id, resource.Volume);
                  beer = new Beer()
                 {
                     OfficeId = kegResult.OfficeId,

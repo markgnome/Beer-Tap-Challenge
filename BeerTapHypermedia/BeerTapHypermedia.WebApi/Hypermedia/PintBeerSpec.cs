@@ -8,25 +8,25 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace BeerTapHypermedia.WebApi.Hypermedia
 {
-    public class ReplaceKegSpec : SingleStateResourceSpec<ReplaceKeg, int>
+    public class PintBeerSpec : SingleStateResourceSpec<Pint, int>
     {
 
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Keg({id})/Replace");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Keg({id})/PintBeer");
 
-        public override string EntrypointRelation => LinkRelations.Kegs.ReplaceKeg;
+        public override string EntrypointRelation => LinkRelations.Kegs.PintBeer;
 
-        public override IResourceStateSpec<ReplaceKeg, NullState, int> StateSpec
+        public override IResourceStateSpec<Pint, NullState, int> StateSpec
         {
             get
             {
                 return
-                  new SingleStateSpec<ReplaceKeg, int>
+                  new SingleStateSpec<Pint, int>
                   {
                       Links =
                       {
-                           CreateLinkTemplate(LinkRelations.Kegs.ReplaceKeg , Uri , r => r.KegId),
+                           CreateLinkTemplate(LinkRelations.Kegs.PintBeer , Uri , r => r.Id),
                       },
-                      Operations = new StateSpecOperationsSource<ReplaceKeg, int>
+                      Operations = new StateSpecOperationsSource<Pint, int>
                       {
                           InitialPost = ServiceOperations.Create,
                           Post = ServiceOperations.Update

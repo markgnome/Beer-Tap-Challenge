@@ -34,17 +34,12 @@
             Keg Entity Class
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.KegId">
-            <summary>
-            Keg Id
-            </summary>
-        </member>
-        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.OfficeId">
-            <summary>
-            Office Id
-            </summary>
-        </member>
         <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Volume">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Id">
             <summary>
             
             </summary>
@@ -274,7 +269,7 @@
             action link to change keg from office
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.TapBeer">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.PintBeer">
             <summary>
             Get a pint of beer 
             </summary>

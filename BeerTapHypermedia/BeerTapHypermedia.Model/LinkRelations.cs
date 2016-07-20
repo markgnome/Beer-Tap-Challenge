@@ -37,7 +37,7 @@
             /// <summary>
             /// Get a pint of beer 
             /// </summary>
-            public const string TapBeer = "iq:TapBeer";
+            public const string PintBeer = "iq:PintBeer";
         }
 
     }
