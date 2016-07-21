@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -41,7 +42,8 @@ namespace BeerTapHypermedia.DataAccess
             using (var context = _contextFactory.CreateContext())
             {
                 context.Offices.Add(office);
-                return context.SaveChanges();
+                context.SaveChanges();
+                return office.Id;
             }
         }
 

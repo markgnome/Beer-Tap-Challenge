@@ -19,3 +19,4 @@ C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\D
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\bin\Debug\Newtonsoft.Json.xml
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.dll
 C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.pdb
+C:\Dev\Github\Beer-Tap-Challenge\BeerTapHypermedia\BeerTapHypermedia.Model\obj\Debug\BeerTapHypermedia.Model.csprojResolveAssemblyReference.cache

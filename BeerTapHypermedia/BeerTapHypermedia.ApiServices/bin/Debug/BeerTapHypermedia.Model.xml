@@ -239,37 +239,37 @@
             iQmetrix link relation names
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Office">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Offices">
             <summary>
             link relation to describe the Identity resource.
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs">
             <summary>
             link relation to describe the Identity resouce
             </summary>
         </member>
-        <member name="T:BeerTapHypermedia.Model.LinkRelations.Kegs">
+        <member name="T:BeerTapHypermedia.Model.LinkRelations.Keg">
             <summary>
             Action link for beer kegs
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.Kurl">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg.Kurl">
             <summary>
             Link to describe multiple kegs
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.ReplaceKeg">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg.ReplaceKeg">
             <summary>
             action link to replace keg from office
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.ChangeKeg">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg.ChangeKeg">
             <summary>
             action link to change keg from office
             </summary>
         </member>
-        <member name="F:BeerTapHypermedia.Model.LinkRelations.Kegs.PintBeer">
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg.PintBeer">
             <summary>
             Get a pint of beer 
             </summary>

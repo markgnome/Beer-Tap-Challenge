@@ -8,19 +8,19 @@
         /// <summary>
         /// link relation to describe the Identity resource.
         /// </summary>
-        public const string Office = "iq:Office";
+        public const string Offices = "iq:Offices";
 
         /// <summary>
         /// link relation to describe the Identity resouce
         /// </summary>
-        public const string Keg = "iq:Keg";
+        public const string Kegs = "iq:Kegs";
 
 
 
         /// <summary>
         /// Action link for beer kegs
         /// </summary>
-        public static class Kegs
+        public static class Keg
         {
             /// <summary>
             /// Link to describe multiple kegs

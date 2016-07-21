@@ -10,9 +10,9 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
     public class OfficeSpec : SingleStateResourceSpec<OfficeModel, int>
     {
 
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Office({id})");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({id})");
 
-        public override string EntrypointRelation => LinkRelations.Office;
+        public override string EntrypointRelation => LinkRelations.Offices;
 
         public override IResourceStateSpec<OfficeModel, NullState, int> StateSpec
         {
@@ -23,7 +23,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                   {
                       Links =
                       {
-                           CreateLinkTemplate(LinkRelations.Office , Uri , r => r.OfficeId),
+                           CreateLinkTemplate(LinkRelations.Keg.Kurl, KegSpec.UriOfficeAndKeg, r => r.OfficeId)
                       },
                       Operations = new StateSpecOperationsSource<OfficeModel, int>
                       {

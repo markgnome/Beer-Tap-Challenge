@@ -13,7 +13,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
 
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Keg({id})/Change");
 
-        public override string EntrypointRelation => LinkRelations.Kegs.ChangeKeg;
+        public override string EntrypointRelation => LinkRelations.Keg.ChangeKeg;
 
         public override IResourceStateSpec<ChangeKeg, NullState, int> StateSpec
         {
@@ -24,7 +24,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                   {
                       Links =
                       {
-                           CreateLinkTemplate(LinkRelations.Kegs.ChangeKeg , Uri , r => r.KegId),
+                           CreateLinkTemplate(LinkRelations.Keg.ChangeKeg , Uri , r => r.KegId),
                       },
                       Operations = new StateSpecOperationsSource<ChangeKeg, int>
                       {
