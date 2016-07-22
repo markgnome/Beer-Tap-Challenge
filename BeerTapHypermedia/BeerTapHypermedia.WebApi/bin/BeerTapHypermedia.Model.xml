@@ -59,7 +59,7 @@
             Keg Entity Class
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.KegId">
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.Id">
             <summary>
             Office ID 
             </summary>
@@ -69,7 +69,7 @@
             Keg Brand of Beer
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.Id">
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.KegId">
             <summary>
             
             </summary>

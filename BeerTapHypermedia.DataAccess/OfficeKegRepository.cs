@@ -25,7 +25,13 @@ namespace BeerTapHypermedia.DataAccess
 
         public void Change(int kegId, int brandId)
         {
-            _kegRepository.Update(new Keg() { Id = kegId, BrandId = brandId, Quantity = 2000 });
+            using (var context = _contextFactory.CreateContext())
+            {
+                var keg = context.Kegs.Find(kegId);
+                keg.BrandId = brandId;
+                keg.Quantity = 2000;
+                context.SaveChanges();
+            }
         }
 
         public Keg Replace(int kegId, int brandId)

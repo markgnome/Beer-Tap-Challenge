@@ -19,7 +19,7 @@ using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
 {
-    public class ChangeKegApiService : IUpdateAResourceAsync<ChangeKeg, int>
+    public class ChangeKegApiService : ICreateAResourceAsync<ChangeKeg, int>
     {
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
@@ -33,21 +33,21 @@ namespace BeerTapHypermedia.ApiServices
             _kegApiService = kegApiService;
         }
 
-        public Task<ChangeKeg> UpdateAsync(ChangeKeg resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<ChangeKeg, int>> CreateAsync(ChangeKeg resource, IRequestContext context, CancellationToken cancellation)
         {
             var messageNoResource = $"Keg resource with id {resource.Id} cannot be found";
             try
             {
                 var searchKeg = _kegApiService.Get(resource.Id);
                 if (searchKeg == null) throw context.CreateNotFoundHttpResponseException<ChangeKeg>();
-                _officeKegRepository.Change(resource.Id, (int) resource.Brand);
+                _officeKegRepository.Change(resource.Id, (int)resource.Brand);
             }
             catch
                 (Exception)
             {
                 throw context.CreateHttpResponseException<ChangeKeg>(messageNoResource, HttpStatusCode.BadRequest);
             }
-            return Task.FromResult(resource);
+            return Task.FromResult(new ResourceCreationResult<ChangeKeg, int>(resource));
         }
     }
 }
