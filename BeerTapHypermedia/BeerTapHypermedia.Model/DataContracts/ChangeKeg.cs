@@ -23,5 +23,9 @@ namespace BeerTapHypermedia.Model.DataContracts
         /// 
         /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// Office Id
+        /// </summary>
+        public int OfficeId { get; set; }
     }
 }

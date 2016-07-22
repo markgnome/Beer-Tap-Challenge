@@ -10,7 +10,7 @@ namespace BeerTapHypermedia.Model.DataContracts
     public class ReplaceKeg : IStatelessResource, IIdentifiable<int>
     {
         /// <summary>
-        /// Office ID 
+        /// Keg ID 
         /// </summary>
         public int Id => KegId;
 
@@ -22,6 +22,10 @@ namespace BeerTapHypermedia.Model.DataContracts
         /// 
         /// </summary>
         public int KegId { get; set; }
+        /// <summary>
+        /// Office Id
+        /// </summary>
+        public int OfficeId { get; set; }
 
     }
 }

@@ -19,59 +19,23 @@ using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
 {
-    public class OfficeKegApiService : IOfficeKegApiService
+    public class OfficeKegApiService : IGetAResourceAsync<OfficeKegModel, int>
     {
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
-        private readonly IOfficeKegRepository _officeKegRepository;
+        private readonly IOfficeRepository _officeRepository;
         private readonly IKegRepository _kegRepository;
-        public OfficeKegApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IOfficeKegRepository officeKegRepository, IKegRepository kegRepository)
+        public OfficeKegApiService(IApiUserProvider<BeerTapHypermediaApiUser> userProvider, IKegRepository kegRepository, IOfficeRepository officeRepository)
         {
             if (userProvider == null) throw new ArgumentNullException("userProvider");
             _userProvider = userProvider;
-            _officeKegRepository = officeKegRepository;
             _kegRepository = kegRepository;
+            _officeRepository = officeRepository;
         }
 
-
-
-        public Task<KegModel> ChangeKeg(ChangeKeg resource, IRequestContext context, CancellationToken cancellation)
+        public Task<OfficeKegModel> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
-            _officeKegRepository.Change(resource.KegId, (int)resource.Brand);
-            return Task.FromResult(Mapper.Map<KegModel>(_kegRepository.Get(resource.KegId)));
-        }
-
-        public Task<Beer> PullBeer(Pint resource, IRequestContext context, CancellationToken cancellation)
-        {
-            Beer beer;
-            try
-            {
-                var kegResult = _kegRepository.Get(resource.Id);
-                if (kegResult.Quantity <= resource.Volume)
-
-                    _officeKegRepository.Pint(resource.Id, resource.Volume);
-                 beer = new Beer()
-                {
-                    OfficeId = kegResult.OfficeId,
-                    KegId = kegResult.OfficeId,
-                    Volume = resource.Volume,
-                    Brand = (KegBrand) kegResult.BrandId
-                };
-            }
-            catch (Exception exception)
-            {
-                throw context.CreateHttpResponseException<Beer>(exception.Message, HttpStatusCode.BadRequest);
-
-            }
-            return Task.FromResult(beer);
-        }
-
-
-        public Task<KegModel> ReplaceKeg(ReplaceKeg resource, IRequestContext context, CancellationToken cancellation)
-        {
-            _kegRepository.Delete(resource.KegId);
-            var kegResult = _officeKegRepository.Replace(resource.Id, (int) resource.Brand);
-            return Task.FromResult(Mapper.Map<KegModel>(kegResult));
+            throw new NotImplementedException();
         }
     }
 }

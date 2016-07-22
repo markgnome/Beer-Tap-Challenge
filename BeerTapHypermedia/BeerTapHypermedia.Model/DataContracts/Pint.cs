@@ -9,15 +9,22 @@ namespace BeerTapHypermedia.Model.DataContracts
     /// </summary>
     public class Pint : IStatelessResource, IIdentifiable<int>
     {
-
         /// <summary>
-        /// 
+        /// Volume
         /// </summary>
         public decimal Volume { get; set; }
-
         /// <summary>
         /// 
         /// </summary>
-        public int Id { get; set; }
+        public int Id => KegId;
+        /// <summary>
+        /// 
+        /// </summary>
+        public int KegId { get; set; }
+        /// <summary>
+        /// Office Id
+        /// </summary>
+        public int OfficeId { get; set; }
+
     }
 }

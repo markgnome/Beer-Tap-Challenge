@@ -36,12 +36,22 @@
         </member>
         <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Volume">
             <summary>
-            
+            Volume
             </summary>
         </member>
         <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Id">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.KegId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.OfficeId">
+            <summary>
+            Office Id
             </summary>
         </member>
         <member name="T:BeerTapHypermedia.Model.DataContracts.ChangeKeg">
@@ -64,6 +74,11 @@
             
             </summary>
         </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ChangeKeg.OfficeId">
+            <summary>
+            Office Id
+            </summary>
+        </member>
         <member name="T:BeerTapHypermedia.Model.DataContracts.ReplaceKeg">
             <summary>
             Keg Entity Class
@@ -71,7 +86,7 @@
         </member>
         <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.Id">
             <summary>
-            Office ID 
+            Keg ID 
             </summary>
         </member>
         <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.Brand">
@@ -82,6 +97,11 @@
         <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.KegId">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.ReplaceKeg.OfficeId">
+            <summary>
+            Office Id
             </summary>
         </member>
         <member name="T:BeerTapHypermedia.Model.Enums.KegBrand">
@@ -249,6 +269,11 @@
             link relation to describe the Identity resouce
             </summary>
         </member>
+        <member name="F:BeerTapHypermedia.Model.LinkRelations.OfficeKegs">
+            <summary>
+            link relation to describe the Office Kegs resouces
+            </summary>
+        </member>
         <member name="T:BeerTapHypermedia.Model.LinkRelations.Keg">
             <summary>
             Action link for beer kegs
@@ -272,6 +297,16 @@
         <member name="F:BeerTapHypermedia.Model.LinkRelations.Keg.PintBeer">
             <summary>
             Get a pint of beer 
+            </summary>
+        </member>
+        <member name="T:BeerTapHypermedia.Model.OfficeKegModel">
+            <summary>
+            A Sample Resource, used as a placeholder. To be removed after real-world API resources have been added.
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.OfficeKegModel.Kegs">
+            <summary>
+            Kegs in the office
             </summary>
         </member>
         <member name="T:BeerTapHypermedia.Model.OfficeModel">
@@ -302,11 +337,6 @@
         <member name="P:BeerTapHypermedia.Model.OfficeModel.Description">
             <summary>
             Description for the Office
-            </summary>
-        </member>
-        <member name="P:BeerTapHypermedia.Model.OfficeModel.Kegs">
-            <summary>
-            Kegs in the office
             </summary>
         </member>
     </members>

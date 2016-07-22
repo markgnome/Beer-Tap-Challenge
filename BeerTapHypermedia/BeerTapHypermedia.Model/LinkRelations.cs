@@ -15,7 +15,10 @@
         /// </summary>
         public const string Kegs = "iq:Kegs";
 
-
+        /// <summary>
+        /// link relation to describe the Office Kegs resouces
+        /// </summary>
+        public const string OfficeKegs = "iq:OfficeKegs";
 
         /// <summary>
         /// Action link for beer kegs

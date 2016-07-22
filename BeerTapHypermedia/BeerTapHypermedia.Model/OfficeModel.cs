@@ -39,6 +39,6 @@ namespace BeerTapHypermedia.Model
         /// <summary>
         /// Kegs in the office
         /// </summary>
-        public IEnumerable<KegModel> Kegs { get; set; }
+        //public IEnumerable<KegModel> Kegs { get; set; }
     }
 }

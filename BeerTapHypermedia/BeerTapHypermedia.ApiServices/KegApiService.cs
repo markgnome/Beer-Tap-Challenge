@@ -40,10 +40,9 @@ namespace BeerTapHypermedia.ApiServices
         public Task<IEnumerable<KegModel>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
             var officeId = context.UriParameters.GetByName<int>("officeId").EnsureValue(() => context.CreateHttpResponseException<OfficeModel>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
-            var results = officeId != 0
-                ? GetManyAsync(officeId, context, cancellation).Result
-                : Mapper.Map<IEnumerable<KegModel>>(_kegRepository.GetAll());
-            return Task.FromResult(results);
+            var kegId = context.UriParameters.GetByName<int>("kegId");
+            var results = Mapper.Map<IEnumerable<KegModel>>(_kegRepository.GetAll(officeId));
+            return Task.FromResult(kegId.HasValue ? results.Where(r => r.KegId == kegId.Value) : results);
         }
 
         public Task<IEnumerable<KegModel>> GetManyAsync(int resourceId, IRequestContext context, CancellationToken cancellation)

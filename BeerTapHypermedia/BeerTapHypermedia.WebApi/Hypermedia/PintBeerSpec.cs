@@ -11,9 +11,14 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
     public class PintBeerSpec : SingleStateResourceSpec<Pint, int>
     {
 
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Kegs({id})/PintBeer");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({officeId})/Kegs({kegId})/PintBeer");
 
         public override string EntrypointRelation => LinkRelations.Keg.PintBeer;
+
+        //protected override IEnumerable<ResourceLinkTemplate<Pint>> Links()
+        //{
+        //    yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.OfficeId, c => c.KegId);
+        //}
 
         public override IResourceStateSpec<Pint, NullState, int> StateSpec
         {
@@ -24,7 +29,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                   {
                       Links =
                       {
-                           CreateLinkTemplate(LinkRelations.Keg.PintBeer , Uri , r => r.Id),
+                           CreateLinkTemplate(LinkRelations.Keg.PintBeer , Uri, r => r.OfficeId, r => r.KegId),
                       },
                       Operations = new StateSpecOperationsSource<Pint, int>
                       {

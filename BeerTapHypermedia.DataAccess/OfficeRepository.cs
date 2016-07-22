@@ -63,8 +63,11 @@ namespace BeerTapHypermedia.DataAccess
         {
             using (var context = _contextFactory.CreateContext())
             {
-                var officeIdParam = new SqlParameter { ParameterName = "@Id", SqlDbType = SqlDbType.Int, Value = officeId };
-                context.Database.ExecuteSqlCommand("DELETE FROM Offices WHERE Id = @Id", officeIdParam);
+                var office = context.Offices.Find(officeId);
+                if (office != null)
+                {
+                    context.Offices.Remove(office);
+                }
             }
         }
     }
