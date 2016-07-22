@@ -42,11 +42,6 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<IEnumerable<OfficeModel>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
-            //var officeId = context.UriParameters.GetByName<int>("officeId").EnsureValue(() => context.CreateHttpResponseException<OfficeModel>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
-            //if (officeId > 0)
-            //{
-            //    var office = _officeRepository.Get(officeId);
-            //}
             var allOffices = _officeRepository.GetAll();
             var officesModel = Mapper.Map<IEnumerable<OfficeModel>>(allOffices);
             return Task.FromResult(officesModel);

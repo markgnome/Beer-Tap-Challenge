@@ -11,33 +11,25 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
     public class PintBeerSpec : SingleStateResourceSpec<Pint, int>
     {
 
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({officeId})/Kegs({kegId})/PintBeer");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("PintBeer");
 
         public override string EntrypointRelation => LinkRelations.Keg.PintBeer;
 
-        //protected override IEnumerable<ResourceLinkTemplate<Pint>> Links()
-        //{
-        //    yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.OfficeId, c => c.KegId);
-        //}
-
-        public override IResourceStateSpec<Pint, NullState, int> StateSpec
+        protected override IEnumerable<ResourceLinkTemplate<Pint>> Links()
         {
-            get
-            {
-                return
-                  new SingleStateSpec<Pint, int>
-                  {
-                      Links =
-                      {
-                           CreateLinkTemplate(LinkRelations.Keg.PintBeer , Uri, r => r.OfficeId, r => r.KegId),
-                      },
-                      Operations = new StateSpecOperationsSource<Pint, int>
-                      {
-                          InitialPost = ServiceOperations.Create,
-                          Post = ServiceOperations.Update
-                      },
-                  };
-            }
+            yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri);
         }
+
+        public override IResourceStateSpec<Pint, NullState, int> StateSpec => new SingleStateSpec<Pint, int>
+        {
+            Links =
+            {
+                CreateLinkTemplate(LinkRelations.Keg.PintBeer, Uri),
+            },
+            Operations = new StateSpecOperationsSource<Pint, int>
+            {
+                InitialPost = ServiceOperations.Create,
+            },
+        };
     }
 }

@@ -15,6 +15,11 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
 
         public override string EntrypointRelation => LinkRelations.Keg.ReplaceKeg;
 
+        protected override IEnumerable<ResourceLinkTemplate<ReplaceKeg>> Links()
+        {
+            yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.OfficeId, c => c.KegId);
+        }
+
         public override IResourceStateSpec<ReplaceKeg, NullState, int> StateSpec
         {
             get

@@ -19,7 +19,7 @@ using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
 {
-    public class PintBeerApiService : IUpdateAResourceAsync<Pint, int>
+    public class PintBeerApiService : ICreateAResourceAsync<Pint, int>
     {
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
@@ -33,7 +33,8 @@ namespace BeerTapHypermedia.ApiServices
             _kegRepository = kegRepository;
         }
 
-        public Task<Pint> UpdateAsync(Pint resource, IRequestContext context, CancellationToken cancellation)
+
+        public Task<ResourceCreationResult<Pint, int>> CreateAsync(Pint resource, IRequestContext context, CancellationToken cancellation)
         {
             var messageNoResource = $"Pint Keg resource with id {resource.Id} cannot be found";
             try
@@ -50,7 +51,7 @@ namespace BeerTapHypermedia.ApiServices
             {
                 throw context.CreateHttpResponseException<Pint>(messageNoResource, HttpStatusCode.BadRequest);
             }
-            return Task.FromResult(resource);
+            return Task.FromResult(new ResourceCreationResult<Pint, int>(resource));
         }
     }
 }

@@ -28,10 +28,16 @@ namespace BeerTapHypermedia.DataAccess
             _kegRepository.Update(new Keg() { Id = kegId, BrandId = brandId, Quantity = 2000 });
         }
 
-        public Keg Replace(int officeId, int brandId)
+        public Keg Replace(int kegId, int brandId)
         {
-            var kegId = _kegRepository.Save(new Keg() {BrandId = brandId, OfficeId = officeId, Quantity = 2000});
-            return _kegRepository.Get(kegId);
+            using (var context = _contextFactory.CreateContext())
+            {
+                var keg = context.Kegs.Find(kegId);
+                keg.BrandId = brandId;
+                keg.Quantity = 2000;
+                context.SaveChanges();
+                return keg;
+            }
         }
 
         public void Pint(int kegId, decimal glassMl)

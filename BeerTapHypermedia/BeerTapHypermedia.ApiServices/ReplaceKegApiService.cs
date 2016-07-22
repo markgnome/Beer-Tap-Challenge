@@ -41,9 +41,9 @@ namespace BeerTapHypermedia.ApiServices
             {
                 var searchKeg = _kegRepository.Get(resource.Id);
                 if (searchKeg == null) throw context.CreateNotFoundHttpResponseException<ReplaceKeg>();
-                _kegRepository.Delete(resource.KegId);
-                var kegResult = _officeKegRepository.Replace(searchKeg.OfficeId, (int) resource.Brand);
+                var kegResult = _officeKegRepository.Replace(resource.KegId, (int) resource.Brand);
                 resource.KegId = kegResult.Id;
+                resource.OfficeId = kegResult.OfficeId;
             }
             catch (Exception)
             {
