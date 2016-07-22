@@ -19,7 +19,7 @@ using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
 {
-    public class ReplaceKegApiService : IUpdateAResourceAsync<ReplaceKeg, int>
+    public class ReplaceKegApiService : ICreateAResourceAsync<ReplaceKeg, int>
     {
 
         readonly IApiUserProvider<BeerTapHypermediaApiUser> _userProvider;
@@ -34,14 +34,14 @@ namespace BeerTapHypermedia.ApiServices
             _kegRepository = kegRepository;
         }
 
-        public Task<ReplaceKeg> UpdateAsync(ReplaceKeg resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<ReplaceKeg, int>> CreateAsync(ReplaceKeg resource, IRequestContext context, CancellationToken cancellation)
         {
             var messageNoResource = $"Replace Keg resource with id {resource.Id} cannot be found";
             try
             {
                 var searchKeg = _kegRepository.Get(resource.Id);
                 if (searchKeg == null) throw context.CreateNotFoundHttpResponseException<ReplaceKeg>();
-                var kegResult = _officeKegRepository.Replace(resource.KegId, (int) resource.Brand);
+                var kegResult = _officeKegRepository.Replace(resource.KegId, (int)resource.Brand);
                 resource.KegId = kegResult.Id;
                 resource.OfficeId = kegResult.OfficeId;
             }
@@ -49,7 +49,7 @@ namespace BeerTapHypermedia.ApiServices
             {
                 throw context.CreateHttpResponseException<Pint>(messageNoResource, HttpStatusCode.BadRequest);
             }
-            return Task.FromResult(resource);
+            return Task.FromResult(new ResourceCreationResult<ReplaceKeg, int>(resource));
         }
     }
 }

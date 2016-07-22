@@ -29,7 +29,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Kegs, ReplaceKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId)
+                    CreateLinkTemplate(LinkRelations.Kegs, ReplaceKegSpec.Uri.Many)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
@@ -42,7 +42,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Keg.ReplaceKeg, ReplaceKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
+                    CreateLinkTemplate(LinkRelations.Keg.ReplaceKeg, ReplaceKegSpec.Uri.Many),
                     CreateLinkTemplate(LinkRelations.Keg.PintBeer, PintBeerSpec.Uri.Many)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
@@ -56,7 +56,6 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
                     CreateLinkTemplate(LinkRelations.Keg.PintBeer, PintBeerSpec.Uri.Many)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
@@ -70,7 +69,6 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
                      CreateLinkTemplate(LinkRelations.Keg.PintBeer, PintBeerSpec.Uri.Many)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()

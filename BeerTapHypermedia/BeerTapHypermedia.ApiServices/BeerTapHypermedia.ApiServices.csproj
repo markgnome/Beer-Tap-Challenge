@@ -185,6 +185,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeKegApiService.cs" />
     <Compile Include="Configurations\AutoMapperConfiguration.cs" />
     <Compile Include="IDomainServiceResolver.cs" />
     <Compile Include="IKegApiService.cs" />
@@ -194,7 +195,6 @@
       <DependentUpon>IKegApiService.cs</DependentUpon>
     </Compile>
     <Compile Include="LinksParametersSource.cs" />
-    <Compile Include="ChangeKegApiService.cs" />
     <Compile Include="ReplaceKegApiService.cs" />
     <Compile Include="PintBeerApiService.cs" />
     <Compile Include="OfficeKegApiService.cs" />
