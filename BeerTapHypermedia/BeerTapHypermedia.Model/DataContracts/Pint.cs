@@ -16,15 +16,19 @@ namespace BeerTapHypermedia.Model.DataContracts
         /// <summary>
         /// 
         /// </summary>
-        public int Id => KegId;
-        /// <summary>
-        /// 
-        /// </summary>
         public int KegId { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public int KegId { get; set; }
         /// <summary>
         /// Office Id
         /// </summary>
         public int OfficeId { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Id => KegId;
     }
 }

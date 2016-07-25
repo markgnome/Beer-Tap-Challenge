@@ -39,11 +39,6 @@
             Volume
             </summary>
         </member>
-        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Id">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.KegId">
             <summary>
             
@@ -52,6 +47,11 @@
         <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.OfficeId">
             <summary>
             Office Id
+            </summary>
+        </member>
+        <member name="P:BeerTapHypermedia.Model.DataContracts.Pint.Id">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:BeerTapHypermedia.Model.DataContracts.ChangeKeg">
