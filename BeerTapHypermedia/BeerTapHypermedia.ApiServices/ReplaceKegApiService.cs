@@ -39,15 +39,16 @@ namespace BeerTapHypermedia.ApiServices
             var messageNoResource = $"Replace Keg resource with id {resource.Id} cannot be found";
             try
             {
+                resource.KegId = context.UriParameters.GetByName<int>("kegId").EnsureValue(() => context.CreateHttpResponseException<OfficeModel>("The Keg Id must be supplied in the URI", HttpStatusCode.BadRequest));
                 var searchKeg = _kegRepository.Get(resource.Id);
-                if (searchKeg == null) throw context.CreateNotFoundHttpResponseException<ReplaceKeg>();
+                if (searchKeg == null) throw context.CreateHttpResponseException<ReplaceKeg>(messageNoResource, HttpStatusCode.BadRequest);
                 var kegResult = _officeKegRepository.Replace(resource.KegId, (int)resource.Brand);
                 resource.KegId = kegResult.Id;
                 resource.OfficeId = kegResult.OfficeId;
             }
             catch (Exception)
             {
-                throw context.CreateHttpResponseException<Pint>(messageNoResource, HttpStatusCode.BadRequest);
+                throw context.CreateHttpResponseException<ReplaceKeg>(messageNoResource, HttpStatusCode.BadRequest);
             }
             return Task.FromResult(new ResourceCreationResult<ReplaceKeg, int>(resource));
         }
