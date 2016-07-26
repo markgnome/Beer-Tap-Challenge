@@ -334,6 +334,11 @@
             Location of Office
             </summary>
         </member>
+        <member name="P:BeerTapHypermedia.Model.OfficeModel.LocationName">
+            <summary>
+            Location
+            </summary>
+        </member>
         <member name="P:BeerTapHypermedia.Model.OfficeModel.Description">
             <summary>
             Description for the Office

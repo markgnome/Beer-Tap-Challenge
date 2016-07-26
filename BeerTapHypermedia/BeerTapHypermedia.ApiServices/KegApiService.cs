@@ -14,6 +14,7 @@ using BeerTapHypermedia.Model.Enums;
 using IQ.Platform.Framework.WebApi;
 using AutoMapper;
 using BeerTapHypermedia.DataAccess.Entities;
+using BeerTapHypermedia.Model.DataContracts;
 using IQ.Platform.Framework.Common;
 
 namespace BeerTapHypermedia.ApiServices
@@ -53,11 +54,27 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<ResourceCreationResult<KegModel, int>> CreateAsync(KegModel resource, IRequestContext context, CancellationToken cancellation)
         {
-            resource.Quantity = KegModel.FullQuantity;
-            var entity = Mapper.Map<Keg>(resource);
-            var resultId = _kegRepository.Save(entity);
-            var newKegDto = _kegRepository.Get(resultId);
-            var keg = Mapper.Map<KegModel>(newKegDto);
+            KegModel keg;
+            try
+            {
+                resource.OfficeId =
+                    context.UriParameters.GetByName<int>("officeId")
+                        .EnsureValue(() => new ArgumentNullException(nameof(resource)));
+                resource.Quantity = resource.Quantity == 0 ? KegModel.FullQuantity : resource.Quantity;
+                var entity = Mapper.Map<Keg>(resource);
+                var resultId = _kegRepository.Save(entity);
+                var newKegDto = _kegRepository.Get(resultId);
+                keg = Mapper.Map<KegModel>(newKegDto);
+            }
+            catch (ArgumentNullException argumentNullException)
+            {
+                throw context.CreateHttpResponseException<KegModel>($"Office resource with id {resource.Id} cannot be found. {argumentNullException.Message}",
+                    HttpStatusCode.BadRequest);
+            }
+            catch (Exception exception)
+            {
+                throw context.CreateHttpResponseException<KegModel>(exception.Message, HttpStatusCode.BadRequest);
+            }
             return Task.FromResult(new ResourceCreationResult<KegModel, int>(keg));
         }
 

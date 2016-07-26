@@ -32,13 +32,14 @@ namespace BeerTapHypermedia.Model
         public OfficeLocation Location { get; set; }
 
         /// <summary>
+        /// Location
+        /// </summary>
+        public string LocationName => Location.ToString("G");
+
+        /// <summary>
         /// Description for the Office
         /// </summary>
         public string Description { get; set; }
 
-        /// <summary>
-        /// Kegs in the office
-        /// </summary>
-        //public IEnumerable<KegModel> Kegs { get; set; }
     }
 }
