@@ -36,19 +36,26 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<ResourceCreationResult<ReplaceKeg, int>> CreateAsync(ReplaceKeg resource, IRequestContext context, CancellationToken cancellation)
         {
-            var messageNoResource = $"Replace Keg resource with id {resource.Id} cannot be found";
             try
             {
-                resource.KegId = context.UriParameters.GetByName<int>("kegId").EnsureValue(() => context.CreateHttpResponseException<OfficeModel>("The Keg Id must be supplied in the URI", HttpStatusCode.BadRequest));
+                resource.KegId =
+                    context.UriParameters.GetByName<int>("kegId")
+                        .EnsureValue(() => new ArgumentNullException(nameof(resource)));
                 var searchKeg = _kegRepository.Get(resource.Id);
-                if (searchKeg == null) throw context.CreateHttpResponseException<ReplaceKeg>(messageNoResource, HttpStatusCode.BadRequest);
+                if (searchKeg == null) throw new ArgumentNullException(nameof(resource));
                 var kegResult = _officeKegRepository.Replace(resource.KegId, (int)resource.Brand);
                 resource.KegId = kegResult.Id;
                 resource.OfficeId = kegResult.OfficeId;
             }
-            catch (Exception)
+            catch (ArgumentNullException argumentNullException)
             {
-                throw context.CreateHttpResponseException<ReplaceKeg>(messageNoResource, HttpStatusCode.BadRequest);
+                throw context.CreateHttpResponseException<Pint>(
+                    $"Keg resource with id {resource.Id} cannot be found. {argumentNullException.Message}",
+                    HttpStatusCode.BadRequest);
+            }
+            catch (Exception exception)
+            {
+                throw context.CreateHttpResponseException<ReplaceKeg>(exception.Message, HttpStatusCode.BadRequest);
             }
             return Task.FromResult(new ResourceCreationResult<ReplaceKeg, int>(resource));
         }

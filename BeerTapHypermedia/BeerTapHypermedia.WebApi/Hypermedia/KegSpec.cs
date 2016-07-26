@@ -10,7 +10,7 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace BeerTapHypermedia.WebApi.Hypermedia
 {
-    public class KegSpec : ResourceSpec<KegModel, KegState, int>// , IStatefulKeg
+    public class KegSpec : ResourceSpec<KegModel, KegState, int>
     {
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({officeId})/Kegs({kegId})");
         
@@ -44,7 +44,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 {
                     CreateLinkTemplate(LinkRelations.Keg.ReplaceKeg, ReplaceKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
                     CreateLinkTemplate(LinkRelations.Keg.PintBeer, PintBeerSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
-                    CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many)
+                    CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {
@@ -58,7 +58,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Keg.PintBeer, PintBeerSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
-                    CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many)
+                    CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId)
 
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
@@ -73,7 +73,7 @@ namespace BeerTapHypermedia.WebApi.Hypermedia
                 Links =
                 {
                      CreateLinkTemplate(LinkRelations.Keg.PintBeer, PintBeerSpec.Uri.Many, c => c.OfficeId, c => c.KegId),
-                     CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many)
+                     CreateLinkTemplate(LinkRelations.Keg.ChangeKeg, ChangeKegSpec.Uri.Many, c => c.OfficeId, c => c.KegId)
                 },
                 Operations = new StateSpecOperationsSource<KegModel, int>()
                 {

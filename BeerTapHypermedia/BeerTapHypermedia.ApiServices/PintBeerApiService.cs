@@ -36,20 +36,32 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<ResourceCreationResult<Pint, int>> CreateAsync(Pint resource, IRequestContext context, CancellationToken cancellation)
         {
-            var messageNoResource = $"Pint Keg resource with id {resource.Id} cannot be found";
             try
             {
+                resource.KegId =
+                    context.UriParameters.GetByName<int>("kegId")
+                        .EnsureValue(() => new ArgumentNullException(nameof(resource)));
                 var searchKeg = _kegRepository.Get(resource.Id);
-                if (searchKeg == null) throw context.CreateNotFoundHttpResponseException<Pint>();
-                if (searchKeg.Quantity >= resource.Volume)
-                {
-                    _officeKegRepository.Pint(resource.Id, resource.Volume);
-                }
+
+                if (searchKeg == null) throw new ArgumentNullException(nameof(resource));
+                if (resource.Volume > searchKeg.Quantity) throw new ArgumentException(nameof(resource));
+
+                _officeKegRepository.Pint(resource.Id, resource.Volume);
+                resource.OfficeId = searchKeg.OfficeId;
+            }
+            catch (ArgumentNullException argumentNullException)
+            {
+                throw context.CreateHttpResponseException<Pint>(
+                    $"Pint Keg resource with id {resource.Id} cannot be found. {argumentNullException.Message}",
+                    HttpStatusCode.BadRequest);
             }
             catch
-                (Exception)
+                (ArgumentException argumentException)
             {
-                throw context.CreateHttpResponseException<Pint>(messageNoResource, HttpStatusCode.BadRequest);
+                throw context.CreateHttpResponseException<Pint>(
+                    $"Keg resource with id ({resource.KegId}) has no enough beer. Please replace the keg. {argumentException.Message}",
+                    HttpStatusCode.BadRequest);
+
             }
             return Task.FromResult(new ResourceCreationResult<Pint, int>(resource));
         }

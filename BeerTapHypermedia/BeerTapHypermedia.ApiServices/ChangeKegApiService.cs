@@ -35,17 +35,26 @@ namespace BeerTapHypermedia.ApiServices
 
         public Task<ResourceCreationResult<ChangeKeg, int>> CreateAsync(ChangeKeg resource, IRequestContext context, CancellationToken cancellation)
         {
-            var messageNoResource = $"Keg resource with id {resource.Id} cannot be found";
             try
             {
+                resource.KegId =
+                    context.UriParameters.GetByName<int>("kegId")
+                        .EnsureValue(() => new ArgumentNullException(nameof(resource)));
                 var searchKeg = _kegApiService.Get(resource.Id);
-                if (searchKeg == null) throw context.CreateNotFoundHttpResponseException<ChangeKeg>();
+                if (searchKeg == null) throw new ArgumentNullException(nameof(resource));
                 _officeKegRepository.Change(resource.Id, (int)resource.Brand);
+                resource.OfficeId = searchKeg.OfficeId;
+            }
+            catch (ArgumentNullException argumentNullException)
+            {
+                throw context.CreateHttpResponseException<Pint>(
+                    $"Keg resource with id {resource.Id} cannot be found. {argumentNullException.Message}",
+                    HttpStatusCode.BadRequest);
             }
             catch
-                (Exception)
+                (Exception exception)
             {
-                throw context.CreateHttpResponseException<ChangeKeg>(messageNoResource, HttpStatusCode.BadRequest);
+                throw context.CreateHttpResponseException<ChangeKeg>(exception.Message, HttpStatusCode.BadRequest);
             }
             return Task.FromResult(new ResourceCreationResult<ChangeKeg, int>(resource));
         }
